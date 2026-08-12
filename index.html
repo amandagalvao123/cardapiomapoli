@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapoli Restaurante — Cardápio e Fichas Técnicas</title>
+<style>
+:root{
+  --pomodoro:#E73439;
+  --pomodoro-ui:#C1272D;
+  --crema:#F5F1EE;
+  --espresso:#3C2B25;
+  --pane:#D9C2AE;
+  --espresso-2:#4B372F;
+  --espresso-3:#6B5045;
+  --linha:rgba(60,43,37,.18);
+  --linha-esc:rgba(217,194,174,.24);
+  --ui:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --black:"Arial Black","Arial Bold",Arial,sans-serif;
+  --pattern:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cg fill='%234B372F'%3E%3Ccircle cx='27' cy='30' r='2.4'/%3E%3Ccircle cx='37' cy='26' r='2.4'/%3E%3Ccircle cx='47' cy='30' r='2.4'/%3E%3Ctext x='37' y='64' font-family='Arial Black,Arial,sans-serif' font-size='44' font-weight='900' text-anchor='middle'%3EM%3C/text%3E%3Ccircle cx='102' cy='105' r='2.4'/%3E%3Ccircle cx='112' cy='101' r='2.4'/%3E%3Ccircle cx='122' cy='105' r='2.4'/%3E%3Ctext x='112' y='139' font-family='Arial Black,Arial,sans-serif' font-size='44' font-weight='900' text-anchor='middle'%3EM%3C/text%3E%3C/g%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--espresso) var(--pattern);color:var(--crema);
+  font-family:var(--ui);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased
+}
+.wrap{max-width:1260px;margin:0 auto;padding:0 24px}
+.star{width:1em;height:1em;fill:currentColor;flex:none}
+
+/* ---------- logo ---------- */
+header{padding:64px 0 0;text-align:center}
+.estrelas{display:flex;justify-content:center;gap:clamp(14px,3.2vw,30px);color:var(--pomodoro);
+  font-size:clamp(15px,3vw,26px);margin-bottom:clamp(10px,1.6vw,16px)}
+.wordmark{
+  font-family:var(--black);font-weight:900;color:var(--pomodoro);
+  font-size:clamp(3.1rem,13vw,7.6rem);line-height:.86;letter-spacing:-.015em;margin:0
+}
+.restaurante{
+  color:var(--pomodoro);font-size:clamp(.7rem,1.9vw,1.05rem);font-weight:400;
+  letter-spacing:.42em;text-indent:.42em;margin:clamp(10px,1.6vw,16px) 0 0
+}
+
+/* faixa vermelha */
+.faixa{background:var(--pomodoro);margin-top:clamp(34px,5vw,54px)}
+.faixa-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:8px 20px;padding:16px 0}
+.faixa h1{font-family:var(--black);font-weight:900;color:var(--crema);
+  font-size:clamp(1.15rem,3vw,1.6rem);letter-spacing:.02em;text-transform:uppercase;margin:0}
+.faixa .lado{display:flex;align-items:center;gap:10px;color:var(--crema);
+  font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:700}
+
+/* stats */
+.stats{display:flex;flex-wrap:wrap;gap:6px 26px;padding:18px 0 0;
+  font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pane)}
+.stats b{color:var(--crema);font-variant-numeric:tabular-nums}
+
+/* ---------- abas ---------- */
+.abas{display:flex;flex-wrap:wrap;gap:4px;margin-top:24px}
+.aba{font:700 .76rem/1 var(--ui);letter-spacing:.11em;text-transform:uppercase;padding:14px 20px;
+  border:0;background:transparent;color:var(--pane);cursor:pointer;border-radius:4px 4px 0 0;
+  transition:.15s;display:flex;align-items:center;gap:9px}
+.aba:hover{color:var(--crema);background:rgba(217,194,174,.12)}
+.aba[aria-selected="true"]{background:var(--crema);color:var(--espresso)}
+.aba .n{font-weight:400;opacity:.65;font-variant-numeric:tabular-nums}
+
+/* ---------- sumário ---------- */
+.intro{padding:22px 20px 20px;border-bottom:1px solid var(--linha)}
+.intro h2{font-family:var(--black);font-weight:900;font-size:clamp(1.05rem,2.8vw,1.35rem);
+  text-transform:uppercase;margin:0 0 8px}
+.intro p{margin:0;font-size:.85rem;line-height:1.55;max-width:82ch;color:var(--espresso-3)}
+.blocos{display:grid;gap:14px;margin-top:14px}
+.bloco{background:var(--crema);color:var(--espresso);border-radius:4px;padding:20px}
+.bloco > h3{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  margin:0 0 15px;padding-bottom:10px;border-bottom:2px solid var(--espresso)}
+.passos{display:grid;gap:15px 22px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.passo{display:flex;gap:9px;align-items:flex-start}
+.passo .star{color:var(--pomodoro);flex:none;margin-top:3px;font-size:12px}
+.passo b{display:block;font-size:.82rem;margin-bottom:3px}
+.passo span{font-size:.77rem;color:var(--espresso-3);line-height:1.42;display:block}
+.duplo{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.glos{margin:0}
+.glos dt{font-weight:700;font-size:.8rem;margin-top:13px}
+.glos dt:first-of-type{margin-top:0}
+.glos dd{margin:2px 0 0;color:var(--espresso-3);line-height:1.42;font-size:.77rem}
+.dec{counter-reset:d;margin:0;padding:0;list-style:none}
+.dec li{position:relative;padding-left:33px;margin-bottom:15px;font-size:.8rem;line-height:1.45}
+.dec li:last-child{margin-bottom:0}
+.dec li::before{counter-increment:d;content:counter(d);position:absolute;left:0;top:1px;
+  width:22px;height:22px;border-radius:3px;background:var(--pomodoro-ui);color:var(--crema);
+  font-weight:700;font-size:.72rem;display:grid;place-items:center}
+.dec b{display:block;margin-bottom:2px}
+.dec span{color:var(--espresso-3)}
+.cta{display:inline-flex;align-items:center;gap:10px;margin-top:16px;background:var(--pomodoro-ui);
+  color:var(--crema);border:0;border-radius:4px;padding:15px 24px;font:700 .78rem/1 var(--ui);
+  letter-spacing:.11em;text-transform:uppercase;cursor:pointer;transition:.15s}
+.cta:hover{background:var(--espresso)}
+
+/* ---------- painel de decisão ---------- */
+.painel{background:var(--crema);color:var(--espresso);border-radius:0 4px 4px 4px;overflow:hidden}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha)}
+.kpi{background:var(--crema);padding:19px 20px 17px;display:flex;flex-direction:column;gap:6px}
+.kpi.destaque{background:var(--pomodoro-ui);color:var(--crema)}
+.k-rot{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--espresso-3)}
+.kpi.destaque .k-rot{color:var(--crema);opacity:.88}
+.k-num{font-family:var(--black);font-weight:900;font-size:clamp(1.75rem,4.4vw,2.7rem);
+  line-height:.92;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.k-num small{font-size:.45em;letter-spacing:0}
+.k-sub{font-size:.72rem;color:var(--espresso-3);line-height:1.35;margin-top:auto}
+.kpi.destaque .k-sub{color:var(--crema);opacity:.9}
+
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha);
+  border-top:1px solid var(--linha)}
+.cat-b{background:var(--crema);padding:17px 20px 16px}
+.cat-b .nome{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  display:flex;align-items:center;gap:7px}
+.cat-b .nome i{width:10px;height:10px;border-radius:2px;flex:none}
+.cat-b .val{font-family:var(--black);font-weight:900;font-size:clamp(1.3rem,3.2vw,1.75rem);
+  line-height:1;margin:9px 0 0;font-variant-numeric:tabular-nums}
+.cat-b .barra-cat{height:8px;border-radius:2px;margin:10px 0 9px;background:rgba(60,43,37,.1);overflow:hidden}
+.cat-b .barra-cat i{display:block;height:100%;border-radius:2px}
+.cat-b .pe{font-size:.73rem;color:var(--espresso-3);line-height:1.35}
+.cat-b .pe b{color:var(--pomodoro-ui);font-variant-numeric:tabular-nums}
+
+.dist{padding:20px 20px 16px;border-top:1px solid var(--linha)}
+.dist-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;
+  gap:6px 16px;margin-bottom:15px}
+.dist-topo h3{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  margin:0;color:var(--espresso-3)}
+.leg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.68rem;font-weight:700;color:var(--espresso-3)}
+.leg span{display:flex;align-items:center;gap:6px}
+.leg i{width:10px;height:10px;border-radius:2px;flex:none}
+.grafico{position:relative;height:150px;display:flex;align-items:flex-end;gap:2px;
+  border-bottom:2px solid var(--espresso)}
+.grafico button{flex:1 1 0;min-width:0;border:0;padding:0;cursor:pointer;border-radius:2px 2px 0 0;
+  transition:.14s}
+.grafico button:hover{filter:brightness(1.25)}
+.grafico button:focus-visible{outline:2px solid var(--espresso);outline-offset:1px}
+.linha-media{position:absolute;left:0;right:0;border-top:2px dashed var(--espresso);pointer-events:none}
+.linha-media span{position:absolute;right:0;top:-10px;background:var(--crema);padding:0 0 0 8px;
+  font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.dist-pes{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 14px;margin-top:10px;
+  font-size:.72rem;color:var(--espresso-3)}
+.dist-pes b{color:var(--espresso)}
+
+.risco{margin:0;padding:13px 20px;background:rgba(231,52,57,.1);border-top:1px solid var(--linha);
+  font-size:.77rem;line-height:1.45;display:flex;gap:9px;align-items:flex-start}
+.risco svg{color:var(--pomodoro-ui);margin-top:2px}
+.risco b{color:var(--pomodoro-ui)}
+
+/* quadro / índice */
+.quadro{
+  margin:22px 0 0;padding:20px 0 22px;border-top:1px solid var(--linha-esc);
+  border-bottom:1px solid var(--linha-esc);font-size:.92rem;line-height:2.05;color:var(--pane)
+}
+.quadro button{font:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;
+  color:var(--pane);border-bottom:1px solid transparent;transition:.15s}
+.quadro button:hover{color:var(--pomodoro);border-bottom-color:var(--pomodoro)}
+.quadro .sep{color:var(--pomodoro);padding:0 9px;display:inline-block;vertical-align:.05em;
+  font-size:.6em;line-height:1}
+
+/* ---------- controles ---------- */
+.controles{position:sticky;top:0;z-index:30;margin-top:26px;
+  background:var(--espresso);border-bottom:3px solid var(--pomodoro)}
+.controles-in{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;padding:13px 0}
+.busca{position:relative;flex:1 1 210px;min-width:180px}
+.busca input{width:100%;font-family:var(--ui);font-size:.86rem;color:var(--espresso);
+  padding:9px 12px 9px 31px;border:1px solid var(--pane);border-radius:3px;background:var(--crema)}
+.busca input::placeholder{color:var(--espresso-3)}
+.busca svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--espresso-3)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:700 .69rem/1 var(--ui);letter-spacing:.11em;text-transform:uppercase;padding:9px 12px;
+  border:1px solid var(--linha-esc);background:transparent;color:var(--pane);border-radius:3px;
+  cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--pane);color:var(--crema)}
+.chip[aria-pressed="true"]{background:var(--pomodoro-ui);border-color:var(--pomodoro-ui);color:var(--crema)}
+.campo{display:flex;align-items:center;gap:7px;font-size:.69rem;font-weight:700;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--pane)}
+.campo input[type=number]{width:56px;font-family:var(--ui);font-size:.84rem;text-align:right;
+  padding:7px 6px;border:1px solid var(--pane);background:var(--crema);color:var(--espresso);
+  border-radius:3px;font-variant-numeric:tabular-nums}
+.campo select{font-family:var(--ui);font-size:.79rem;padding:7px 6px;border:1px solid var(--pane);
+  background:var(--crema);color:var(--espresso);border-radius:3px}
+.switch{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.69rem;font-weight:700;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--pane)}
+.switch input{position:absolute;opacity:0;pointer-events:none}
+.switch i{width:34px;height:19px;border-radius:19px;background:var(--espresso-3);position:relative;
+  transition:.18s;flex:none;border:1px solid var(--linha-esc)}
+.switch i::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;
+  border-radius:50%;background:var(--crema);transition:.18s}
+.switch input:checked + i{background:var(--pomodoro-ui);border-color:var(--pomodoro-ui)}
+.switch input:checked + i::after{transform:translateX(15px)}
+.switch input:focus-visible + i{outline:2px solid var(--pomodoro);outline-offset:2px}
+.btn-csv{font:700 .69rem/1 var(--ui);letter-spacing:.11em;text-transform:uppercase;padding:9px 13px;
+  border:1px solid var(--pane);background:transparent;color:var(--pane);border-radius:3px;
+  cursor:pointer;transition:.15s}
+.btn-csv:hover{background:var(--pane);color:var(--espresso)}
+
+/* ---------- seções ---------- */
+main{padding-bottom:80px}
+.secao{margin-top:48px}
+.secao-cab{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-bottom:18px}
+.secao-cab h2{font-family:var(--black);font-weight:900;font-size:clamp(1.3rem,3.4vw,1.85rem);
+  text-transform:uppercase;letter-spacing:.01em;margin:0;color:var(--crema)}
+.secao-cab .meta{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--pane);font-variant-numeric:tabular-nums}
+.secao-cab .rule{flex:1 1 50px;height:3px;background:var(--pomodoro);min-width:28px}
+.grade{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+
+/* ---------- card ---------- */
+.card{background:var(--crema);border:0;border-radius:4px;padding:15px 16px 13px;text-align:left;
+  cursor:pointer;font:inherit;color:var(--espresso);display:flex;flex-direction:column;gap:9px;
+  transition:.16s;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.card:hover{transform:translateY(-3px);box-shadow:0 0 0 2px var(--pomodoro),0 8px 18px rgba(0,0,0,.28)}
+.card:focus-visible{outline:3px solid var(--pomodoro);outline-offset:3px}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.card h3{font-family:var(--black);font-weight:900;font-size:1.06rem;line-height:1.2;margin:0;
+  text-transform:uppercase;letter-spacing:-.005em}
+.ficha{font-size:.68rem;font-weight:700;color:var(--espresso-3);letter-spacing:.08em;
+  font-variant-numeric:tabular-nums;flex:none;padding-top:2px}
+.ingr{font-size:.76rem;color:var(--espresso-3);line-height:1.45;margin:0}
+.barra{display:flex;height:7px;border-radius:2px;overflow:hidden;background:rgba(60,43,37,.1)}
+.barra span{display:block;height:100%}
+.card-baixo{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin-top:auto;
+  padding-top:10px;border-top:1px solid var(--linha)}
+.rotulo{font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--espresso-3);
+  display:block;margin-bottom:4px;font-weight:700}
+.custo{font-size:1.08rem;font-weight:700;line-height:1;white-space:nowrap;
+  font-variant-numeric:tabular-nums}
+.venda{text-align:right}
+.venda .v{font-size:1.08rem;font-weight:700;color:var(--pomodoro-ui);line-height:1;
+  white-space:nowrap;font-variant-numeric:tabular-nums}
+.delta{font-size:.67rem;color:var(--espresso-3);margin-top:5px;font-variant-numeric:tabular-nums}
+.delta.acima{color:var(--pomodoro-ui);font-weight:700}
+.delta.abaixo{font-weight:700}
+
+/* modo cardápio */
+body.sem-custo .custo,body.sem-custo .venda,body.sem-custo .delta,body.sem-custo .col-custo,
+body.sem-custo .drawer-precos,body.sem-custo .btn-csv,body.sem-custo .campo-cmv,
+body.sem-custo .m-custo,body.sem-custo .aviso-est,body.sem-custo .barra,
+body.sem-custo .legenda,body.sem-custo .aba[data-aba="sumario"]{display:none}
+body.sem-custo .card-baixo{border-top:0;padding-top:0}
+
+/* ---------- gaveta ---------- */
+.fundo{position:fixed;inset:0;background:rgba(28,19,16,.62);opacity:0;pointer-events:none;
+  transition:.22s;z-index:40}
+.fundo.on{opacity:1;pointer-events:auto}
+.gaveta{position:fixed;top:0;right:0;height:100%;width:min(540px,100%);background:var(--crema);
+  color:var(--espresso);transform:translateX(101%);transition:transform .28s cubic-bezier(.3,.8,.3,1);
+  z-index:50;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.4)}
+.gaveta.on{transform:none}
+.gaveta-cab{padding:24px 26px 20px;position:relative;background:var(--espresso) var(--pattern);
+  border-bottom:3px solid var(--pomodoro)}
+.gaveta-cab .ficha{color:var(--pane);display:block;margin-bottom:7px}
+.gaveta-cab h2{font-family:var(--black);font-weight:900;font-size:1.5rem;line-height:1.15;
+  margin:0 40px 0 0;color:var(--crema);text-transform:uppercase}
+.gaveta-cab .cat{display:inline-block;margin-top:12px;font-size:.62rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--crema);background:var(--pomodoro-ui);
+  padding:5px 9px;border-radius:3px}
+.fechar{position:absolute;top:22px;right:22px;width:32px;height:32px;border:1px solid var(--linha-esc);
+  background:transparent;border-radius:3px;cursor:pointer;color:var(--pane);display:grid;
+  place-items:center;transition:.15s}
+.fechar:hover{background:var(--pomodoro);border-color:var(--pomodoro);color:var(--crema)}
+.gaveta-corpo{overflow-y:auto;padding:0 26px 40px;flex:1}
+.drawer-precos{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha);
+  margin:22px 0 4px;border:1px solid var(--linha);border-radius:3px;overflow:hidden}
+.pbox{background:var(--crema);padding:12px 10px}
+.pbox b{font-size:1.02rem;font-weight:700;display:block;font-variant-numeric:tabular-nums}
+.pbox.destaque{background:var(--espresso)}
+.pbox.destaque .rotulo{color:var(--pane)}
+.pbox.destaque b{color:var(--crema)}
+.aviso-est{font-size:.74rem;color:var(--espresso);background:rgba(231,52,57,.1);
+  border-left:3px solid var(--pomodoro);padding:9px 11px;margin:16px 0 0;line-height:1.45;border-radius:0 3px 3px 0}
+h4.tit{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--espresso-3);margin:26px 0 0;padding-bottom:8px;border-bottom:2px solid var(--espresso)}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+th{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--espresso-3);text-align:right;padding:10px 0 6px}
+th:first-child{text-align:left}
+td{padding:9px 0;border-top:1px solid var(--linha);vertical-align:top;text-align:right;
+  font-size:.8rem;font-variant-numeric:tabular-nums}
+td:first-child{text-align:left;padding-right:10px;font-variant-numeric:normal}
+td .obs{display:block;font-size:.71rem;color:var(--espresso-3);margin-top:2px}
+tr.total td{border-top:2px solid var(--espresso);font-weight:700;padding-top:11px}
+.mini{display:flex;align-items:center;gap:7px;justify-content:flex-end}
+.mini i{display:block;height:6px;border-radius:2px;flex:none}
+.est{color:var(--pomodoro-ui);font-weight:700;cursor:help}
+.legenda{font-size:.69rem;color:var(--espresso-3);margin-top:14px;line-height:1.5}
+
+.vazio{padding:70px 0;text-align:center;color:var(--pane)}
+.vazio p{font-family:var(--black);font-size:1.5rem;margin:0 0 6px;color:var(--crema);text-transform:uppercase}
+
+footer{border-top:1px solid var(--linha-esc);margin-top:56px;padding:22px 0 60px;font-size:.73rem;
+  color:var(--pane);display:flex;flex-wrap:wrap;gap:6px 22px}
+footer b{color:var(--crema)}
+
+@media (max-width:860px){
+  .kpis{grid-template-columns:1fr 1fr}
+  .cats{grid-template-columns:1fr}
+  .duplo{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  header{padding-top:40px}
+  .quadro{font-size:.86rem;line-height:1.95}
+  .grafico{height:120px;gap:1px}
+  .kpi,.cat-b,.dist,.risco,.intro{padding-left:15px;padding-right:15px}
+  .bloco{padding:16px}
+  .aba{padding:12px 14px;font-size:.7rem}
+  .drawer-precos{grid-template-columns:1fr 1fr}
+  .gaveta-cab,.gaveta-corpo{padding-left:18px;padding-right:18px}
+  .faixa-in{padding:13px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+@media print{
+  body{background:#fff;color:#000}
+  .controles,.quadro,.fundo,.gaveta,.btn-csv,.abas,.cta{display:none!important}
+  [role=tabpanel][hidden]{display:block!important}
+  .painel,.bloco{break-inside:avoid;box-shadow:0 0 0 1px #999}
+  .dec li::before,.cta{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .kpi.destaque{background:var(--pomodoro-ui)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .grafico button,.barra span,.barra-cat i{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card{break-inside:avoid;box-shadow:0 0 0 1px #999}
+  .card:hover{transform:none}
+  .grade{grid-template-columns:repeat(3,1fr)}
+  .secao-cab h2,.vazio p{color:#000}
+  .secao-cab .meta,footer{color:#333}
+  header{padding-top:0}
+  .faixa{background:#fff;border-top:3px solid var(--pomodoro);border-bottom:3px solid var(--pomodoro)}
+  .faixa h1,.faixa .lado{color:var(--pomodoro-ui)}
+}
+</style>
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="star" viewBox="0 0 24 24"><path d="M12 1.7l3 6.2 6.8.9-4.9 4.7 1.2 6.8-6.1-3.3-6.1 3.3 1.2-6.8-4.9-4.7 6.8-.9z"/></symbol></svg>
+
+<div class="wrap">
+<header>
+  <div class="estrelas" aria-hidden="true">
+    <svg class="star"><use href="#star"/></svg>
+    <svg class="star"><use href="#star"/></svg>
+    <svg class="star"><use href="#star"/></svg>
+  </div>
+  <p class="wordmark">MAPOLI</p>
+  <p class="restaurante">RESTAURANTE</p>
+</header>
+</div>
+
+<div class="faixa"><div class="wrap faixa-in">
+  <h1>Cardápio &amp; Fichas Técnicas</h1>
+  <span class="lado"><svg class="star" aria-hidden="true"><use href="#star"/></svg> Grupo Ragga</span>
+</div></div>
+
+<div class="wrap">
+  <div class="abas" role="tablist" aria-label="Seções">
+    <button class="aba" id="a-sumario" role="tab" aria-selected="true" aria-controls="p-sumario" data-aba="sumario">Sumário</button>
+    <button class="aba" id="a-cardapio" role="tab" aria-selected="false" aria-controls="p-cardapio" data-aba="cardapio">Cardápio <span class="n" id="n-aba">38 pratos</span></button>
+  </div>
+</div>
+
+<section id="p-sumario" role="tabpanel" aria-labelledby="a-sumario">
+  <div class="wrap">
+    <div class="painel" id="painel" aria-label="Painel de indicadores"></div>
+
+    <div class="blocos">
+      <div class="bloco">
+        <h3>Como navegar</h3>
+        <div class="passos">
+          <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
+            <b>O painel acima é o resumo</b>
+            <span>Custo médio, preço sugerido e a dispersão dos 38 pratos. Se for ler uma coisa só, é isso.</span></div></div>
+          <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
+            <b>CMV alvo recalcula tudo</b>
+            <span>Mude o percentual na barra da aba Cardápio: todos os preços sugeridos, aqui e nos cards, mudam na hora.</span></div></div>
+          <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
+            <b>Clique para abrir a ficha</b>
+            <span>Qualquer card do cardápio ou barra do gráfico abre ingrediente por ingrediente, com gramatura e custo.</span></div></div>
+          <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
+            <b>Modo cardápio esconde valores</b>
+            <span>Some todo custo e preço da tela. Serve para mostrar para salão, cozinha ou fornecedor sem expor margem.</span></div></div>
+          <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
+            <b>Baixar CSV</b>
+            <span>Exporta o que estiver filtrado, com custo e preço sugerido, já no formato do Excel em português.</span></div></div>
+          <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
+            <b>Imprimir</b>
+            <span>Ctrl+P sai com sumário e cardápio completos em papel, sem os controles de tela.</span></div></div>
+        </div>
+      </div>
+
+      <div class="duplo">
+        <div class="bloco">
+          <h3>Como ler os números</h3>
+          <dl class="glos">
+            <dt>Custo por kg</dt>
+            <dd>Soma dos insumos da ficha para render 1 kg de prato pronto. Não entra mão de obra, gás, embalagem, impostos nem taxa de cartão.</dd>
+            <dt>CMV alvo</dt>
+            <dd>Quanto do preço de venda você aceita que seja insumo. 30% significa que a cada R$ 100 vendidos, R$ 30 é comida.</dd>
+            <dt>Preço sugerido</dt>
+            <dd>Custo dividido pelo CMV alvo. É preço de partida para a discussão, não preço final de tabela.</dd>
+            <dt>Marca ✳</dt>
+            <dd>Insumo com preço estimado a mercado, ainda sem cotação de fornecedor.</dd>
+          </dl>
+        </div>
+
+        <div class="bloco">
+          <h3>O que precisa de decisão</h3>
+          <ol class="dec">
+            <li><b>Definir o CMV alvo</b><span>O painel está simulando <span id="dec-cmv">30%</span>. Fechar esse número fecha a tabela de preço dos 38 pratos de uma vez.</span></li>
+            <li><b>Cotar os insumos estimados</b><span>29% do custo total ainda é estimativa de mercado, concentrada em 15 pratos. Enquanto não cotar, o preço tem essa margem de erro embutida.</span></li>
+            <li><b>Resolver o spread entre categorias</b><span>Proteína custa 53% mais que prato quente por quilo. Se a venda for preço único por kg, o mix de saída é que define a margem real — não o preço da tabela.</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <button class="cta" data-aba="cardapio">Ver os 38 pratos
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<section id="p-cardapio" role="tabpanel" aria-labelledby="a-cardapio" hidden>
+  <div class="wrap">
+    <nav class="quadro" id="quadro" aria-label="Índice de pratos"></nav>
+  </div>
+
+  <div class="controles"><div class="wrap controles-in">
+    <div class="busca">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input type="search" id="busca" placeholder="Buscar prato ou ingrediente" aria-label="Buscar prato ou ingrediente">
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por categoria"></div>
+    <label class="campo"><span>Ordem</span>
+      <select id="ordem" aria-label="Ordenar por">
+        <option value="ficha">Ficha</option>
+        <option value="nome">Nome A–Z</option>
+        <option value="custo-asc">Menor custo</option>
+        <option value="custo-desc">Maior custo</option>
+      </select>
+    </label>
+    <label class="campo campo-cmv"><span>CMV alvo</span>
+      <input type="number" id="cmv" value="30" min="5" max="90" step="1" aria-label="CMV alvo em porcentagem"><span>%</span>
+    </label>
+    <label class="switch"><input type="checkbox" id="modo"><i></i><span>Modo cardápio</span></label>
+    <button class="btn-csv" id="csv">Baixar CSV</button>
+  </div></div>
+
+  <main class="wrap" id="lista"></main>
+</section>
+
+<div class="wrap"><footer>
+  <span>Rendimento padrão <b>1 kg</b> por ficha · custos de insumo conforme a aba <b>Insumos</b> da planilha de fichas técnicas.</span>
+  <span class="no-print">Preço sugerido = custo ÷ CMV alvo.</span>
+</footer></div>
+
+<div class="fundo" id="fundo"></div>
+<aside class="gaveta" id="gaveta" role="dialog" aria-modal="true" aria-labelledby="g-nome">
+  <div class="gaveta-cab">
+    <span class="ficha" id="g-ficha"></span>
+    <h2 id="g-nome"></h2>
+    <span class="cat" id="g-cat"></span>
+    <button class="fechar" id="fechar" aria-label="Fechar ficha">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="gaveta-corpo" id="g-corpo"></div>
+</aside>
+
+<script>
+const DADOS = {"fichas":[{"code":"01","nome":"Salada Caesar","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Alface Fresca","q":350,"obs":null,"cu":4.5,"ct":1.575},{"n":"Filé de Frango","q":250,"obs":"grelhado e cortado","cu":12.29,"ct":3.0725},{"n":"Bacon Picado","q":60,"obs":"crocante","cu":23.2,"ct":1.392},{"n":"Croutons","q":120,"obs":null,"cu":70,"ct":8.4},{"n":"Queijo Parmesão","q":60,"obs":"lascas/ralado","cu":70.91,"ct":4.2546},{"n":"Molho Caesar Pronto","q":150,"obs":null,"cu":41.75,"ct":6.2625},{"n":"Tomate Cereja","q":10,"obs":"decoração","cu":12,"ct":0.12}],"total":25.0766,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.0676},{"code":"02","nome":"Salada Tomate Confit Caprese","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Tomate Fresco","q":400,"obs":"para confitar","cu":6.5,"ct":2.6},{"n":"Muçarela de Búfala","q":350,"obs":null,"cu":108,"ct":37.8},{"n":"Azeite de Oliva","q":120,"obs":null,"cu":40.25,"ct":4.83},{"n":"Manjericão Fresco","q":20,"obs":null,"cu":30,"ct":0.6},{"n":"Açúcar Refinado","q":30,"obs":"para o confit","cu":3.09,"ct":0.09269999999999999},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Pimenta do Reino","q":5,"obs":null,"cu":19.5,"ct":0.0975},{"n":"Vinagre Balsâmico","q":65,"obs":"redução","cu":28,"ct":1.82}],"total":47.863699999999994,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.1049},{"code":"03","nome":"Caponata de Berinjela","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Berinjela","q":400,"obs":null,"cu":7,"ct":2.8000000000000003},{"n":"Tomate Fresco","q":200,"obs":"ou polpa de tomate","cu":6.5,"ct":1.3},{"n":"Cebola","q":120,"obs":null,"cu":4.5,"ct":0.54},{"n":"Aipo","q":50,"obs":null,"cu":9,"ct":0.45},{"n":"Azeitona Verde Fatiada","q":90,"obs":null,"cu":21.49,"ct":1.9340999999999997},{"n":"Alcaparra","q":30,"obs":null,"cu":65,"ct":1.95},{"n":"Azeite de Oliva","q":60,"obs":null,"cu":40.25,"ct":2.415},{"n":"Vinagre Álcool","q":30,"obs":null,"cu":2.37,"ct":0.0711},{"n":"Açúcar Refinado","q":15,"obs":null,"cu":3.09,"ct":0.046349999999999995},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":11.518299999999998,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.6112},{"code":"04","nome":"Torradas","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Torrada Pronta","q":900,"obs":null,"cu":16,"ct":14.4},{"n":"Azeite de Oliva","q":70,"obs":"para pincelar","cu":40.25,"ct":2.8175000000000003},{"n":"Alho em Pó","q":20,"obs":"ou alho fresco","cu":28.9,"ct":0.578},{"n":"Orégano","q":10,"obs":null,"cu":32,"ct":0.32}],"total":18.1155,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.0},{"code":"05","nome":"Rondelli Presunto e Queijo Molho Branco","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":335,"obs":"massa","cu":20,"ct":6.7},{"n":"Presunto","q":150,"obs":"recheio","cu":17.79,"ct":2.6685},{"n":"Queijo Muçarela Comum","q":150,"obs":"recheio","cu":34,"ct":5.1},{"n":"Margarina c/ Sal","q":45,"obs":"molho branco","cu":14.38,"ct":0.6471},{"n":"Farinha de Trigo","q":20,"obs":"molho branco","cu":3.69,"ct":0.0738},{"n":"Leite Integral UHT","q":250,"obs":"molho branco","cu":5.89,"ct":1.4725},{"n":"Noz-moscada","q":5,"obs":"molho branco","cu":100,"ct":0.5},{"n":"Queijo Parmesão","q":40,"obs":"finalização","cu":70.91,"ct":2.8364},{"n":"Pimenta do Reino","q":5,"obs":null,"cu":19.5,"ct":0.0975}],"total":20.0958,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"06","nome":"Rondelli Abóbora Cabotiá","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":335,"obs":"massa","cu":20,"ct":6.7},{"n":"Abóbora Cabotiá","q":320,"obs":"recheio, cozida","cu":5.5,"ct":1.76},{"n":"Queijo Parmesão","q":70,"obs":"recheio","cu":70.91,"ct":4.9637},{"n":"Margarina c/ Sal","q":180,"obs":"molho manteiga e sálvia","cu":14.38,"ct":2.5884},{"n":"Sálvia Fresca","q":5,"obs":"molho","cu":40,"ct":0.2},{"n":"Noz-moscada","q":5,"obs":null,"cu":100,"ct":0.5},{"n":"Pimenta do Reino","q":5,"obs":null,"cu":19.5,"ct":0.0975},{"n":"Queijo Parmesão","q":80,"obs":"finalização","cu":70.91,"ct":5.6728}],"total":22.4824,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0872},{"code":"07","nome":"Lasanha à Bolonhesa","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":190,"obs":"massa","cu":20,"ct":3.8},{"n":"Carne Moída","q":220,"obs":"molho bolonhesa","cu":27.5,"ct":6.05},{"n":"Tomate Fresco","q":180,"obs":"ou polpa de tomate","cu":6.5,"ct":1.17},{"n":"Cebola","q":40,"obs":null,"cu":4.5,"ct":0.18},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Azeite de Oliva","q":20,"obs":null,"cu":40.25,"ct":0.805},{"n":"Queijo Muçarela Comum","q":150,"obs":"camadas","cu":34,"ct":5.1},{"n":"Queijo Parmesão","q":60,"obs":"finalização","cu":70.91,"ct":4.2546},{"n":"Leite Integral UHT","q":100,"obs":"molho branco umectante","cu":5.89,"ct":0.589},{"n":"Margarina c/ Sal","q":15,"obs":"molho branco","cu":14.38,"ct":0.2157},{"n":"Farinha de Trigo","q":10,"obs":"molho branco","cu":3.69,"ct":0.0369},{"n":"Orégano","q":10,"obs":null,"cu":32,"ct":0.32}],"total":22.6112,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0637},{"code":"08","nome":"Lasanha Presunto e Queijo Molho Branco","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":190,"obs":"massa","cu":20,"ct":3.8},{"n":"Presunto","q":180,"obs":null,"cu":17.79,"ct":3.2022},{"n":"Queijo Muçarela Comum","q":150,"obs":null,"cu":34,"ct":5.1},{"n":"Margarina c/ Sal","q":45,"obs":"molho branco","cu":14.38,"ct":0.6471},{"n":"Farinha de Trigo","q":25,"obs":"molho branco","cu":3.69,"ct":0.09225},{"n":"Leite Integral UHT","q":350,"obs":"molho branco","cu":5.89,"ct":2.0614999999999997},{"n":"Noz-moscada","q":5,"obs":null,"cu":100,"ct":0.5},{"n":"Queijo Parmesão","q":50,"obs":"finalização","cu":70.91,"ct":3.5455},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":18.9603,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"09","nome":"Nhoque ao Sugo","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Batata Fresca","q":490,"obs":null,"cu":5,"ct":2.45},{"n":"Farinha de Trigo","q":150,"obs":null,"cu":3.69,"ct":0.5535},{"n":"Ovos","q":60,"obs":null,"cu":8.89,"ct":0.5334},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Tomate Fresco","q":220,"obs":"molho sugo, ou polpa","cu":6.5,"ct":1.43},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Azeite de Oliva","q":30,"obs":null,"cu":40.25,"ct":1.2075},{"n":"Açúcar Refinado","q":10,"obs":null,"cu":3.09,"ct":0.0309},{"n":"Manjericão Fresco","q":5,"obs":null,"cu":30,"ct":0.15},{"n":"Orégano","q":5,"obs":null,"cu":32,"ct":0.16},{"n":"Queijo Parmesão","q":15,"obs":"finalização","cu":70.91,"ct":1.06365}],"total":7.692450000000001,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.5356},{"code":"10","nome":"Nhoque 4 Queijos","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Batata Fresca","q":480,"obs":null,"cu":5,"ct":2.4},{"n":"Farinha de Trigo","q":150,"obs":null,"cu":3.69,"ct":0.5535},{"n":"Ovos","q":60,"obs":null,"cu":8.89,"ct":0.5334},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Creme de Leite","q":150,"obs":"molho 4 queijos","cu":11.5,"ct":1.7249999999999999},{"n":"Requeijão Catupiry","q":80,"obs":null,"cu":32.3,"ct":2.5839999999999996},{"n":"Queijo Parmesão","q":40,"obs":null,"cu":70.91,"ct":2.8364},{"n":"Queijo Provolone","q":30,"obs":null,"cu":51.12,"ct":1.5335999999999999}],"total":12.1894,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.1969},{"code":"11","nome":"Penne ao Pesto","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Penne","q":540,"obs":null,"cu":8.68,"ct":4.6872},{"n":"Manjericão Fresco","q":120,"obs":null,"cu":30,"ct":3.5999999999999996},{"n":"Azeite de Oliva","q":180,"obs":null,"cu":40.25,"ct":7.245},{"n":"Queijo Parmesão","q":80,"obs":null,"cu":70.91,"ct":5.6728},{"n":"Castanha ou Pinoli","q":40,"obs":null,"cu":90,"ct":3.6},{"n":"Alho Fresco","q":10,"obs":null,"cu":18,"ct":0.18},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Leite Integral UHT","q":20,"obs":"opcional, água/leite p/ liga","cu":5.89,"ct":0.1178}],"total":25.126299999999997,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.2937},{"code":"12","nome":"Espaguete à Bolonhesa","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Espaguete","q":500,"obs":null,"cu":12.38,"ct":6.19},{"n":"Carne Moída","q":200,"obs":null,"cu":27.5,"ct":5.5},{"n":"Tomate Fresco","q":200,"obs":"ou polpa de tomate","cu":6.5,"ct":1.3},{"n":"Cebola","q":40,"obs":null,"cu":4.5,"ct":0.18},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Azeite de Oliva","q":20,"obs":null,"cu":40.25,"ct":0.805},{"n":"Queijo Parmesão","q":25,"obs":null,"cu":70.91,"ct":1.77275},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175},{"n":"Orégano","q":5,"obs":null,"cu":32,"ct":0.16}],"total":16.0095,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0981},{"code":"13","nome":"Risoto de Alho-poró","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Arroz Arbóreo","q":350,"obs":null,"cu":22.99,"ct":8.046499999999998},{"n":"Alho-poró","q":250,"obs":null,"cu":14,"ct":3.5},{"n":"Margarina c/ Sal","q":60,"obs":null,"cu":14.38,"ct":0.8628},{"n":"Vinho Branco","q":80,"obs":null,"cu":25,"ct":2},{"n":"Caldo de Legumes","q":200,"obs":null,"cu":9.89,"ct":1.9780000000000002},{"n":"Queijo Parmesão","q":50,"obs":null,"cu":70.91,"ct":3.5455},{"n":"Cebola","q":5,"obs":null,"cu":4.5,"ct":0.0225},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":19.96705,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.2766},{"code":"14","nome":"Risoto Caprese","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Arroz Arbóreo","q":350,"obs":null,"cu":22.99,"ct":8.046499999999998},{"n":"Tomate Fresco","q":200,"obs":null,"cu":6.5,"ct":1.3},{"n":"Muçarela de Búfala","q":180,"obs":null,"cu":108,"ct":19.439999999999998},{"n":"Manjericão Fresco","q":20,"obs":null,"cu":30,"ct":0.6},{"n":"Caldo de Legumes","q":180,"obs":null,"cu":9.89,"ct":1.7802},{"n":"Margarina c/ Sal","q":40,"obs":null,"cu":14.38,"ct":0.5752},{"n":"Queijo Parmesão","q":25,"obs":null,"cu":70.91,"ct":1.77275},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":33.526399999999995,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0567},{"code":"15","nome":"Risoto de Parmesão","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Arroz Arbóreo","q":400,"obs":null,"cu":22.99,"ct":9.196},{"n":"Queijo Parmesão","q":150,"obs":null,"cu":70.91,"ct":10.6365},{"n":"Margarina c/ Sal","q":60,"obs":null,"cu":14.38,"ct":0.8628},{"n":"Vinho Branco","q":60,"obs":null,"cu":25,"ct":1.5},{"n":"Caldo de Legumes","q":300,"obs":null,"cu":9.89,"ct":2.967},{"n":"Cebola","q":20,"obs":null,"cu":4.5,"ct":0.09},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":25.275799999999997,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0629},{"code":"16","nome":"Frango Grelhado Molho Provençal","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Filé de Frango","q":650,"obs":null,"cu":12.29,"ct":7.9885},{"n":"Creme de Leite","q":150,"obs":null,"cu":11.5,"ct":1.7249999999999999},{"n":"Mostarda","q":30,"obs":null,"cu":10.08,"ct":0.3024},{"n":"Alho Fresco","q":10,"obs":null,"cu":18,"ct":0.18},{"n":"Ervas de Provence","q":10,"obs":null,"cu":55,"ct":0.55},{"n":"Vinho Branco","q":100,"obs":null,"cu":25,"ct":2.5},{"n":"Azeite de Oliva","q":30,"obs":null,"cu":40.25,"ct":1.2075},{"n":"Sal Refinado","q":20,"obs":null,"cu":2.35,"ct":0.047}],"total":14.5004,"qtd":1000,"cat":"PROTEÍNA","est_share":0.2228},{"code":"17","nome":"Porco Assado (Lombo)","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Lombo Suíno (Bisteca Copa Lombo)","q":850,"obs":null,"cu":17,"ct":14.45},{"n":"Azeite de Oliva","q":40,"obs":null,"cu":40.25,"ct":1.61},{"n":"Alho Fresco","q":10,"obs":null,"cu":18,"ct":0.18},{"n":"Sal Refinado","q":20,"obs":null,"cu":2.35,"ct":0.047},{"n":"Folha de Louro","q":5,"obs":null,"cu":59.9,"ct":0.2995},{"n":"Vinho Branco","q":75,"obs":"marinada","cu":25,"ct":1.875}],"total":18.461499999999997,"qtd":1000,"cat":"PROTEÍNA","est_share":0.1113},{"code":"18","nome":"Maminha Assada com Molho","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Maminha","q":700,"obs":null,"cu":52,"ct":36.4},{"n":"Creme de Leite","q":120,"obs":null,"cu":11.5,"ct":1.38},{"n":"Mostarda","q":20,"obs":null,"cu":10.08,"ct":0.2016},{"n":"Pimenta do Reino","q":20,"obs":"em grão/moída","cu":19.5,"ct":0.39},{"n":"Vinho Tinto ou Conhaque","q":100,"obs":null,"cu":28,"ct":2.8000000000000003},{"n":"Margarina c/ Sal","q":30,"obs":null,"cu":14.38,"ct":0.4314},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":41.62649999999999,"qtd":1000,"cat":"PROTEÍNA","est_share":0.9417},{"code":"19","nome":"Carne ao Molho Madeira","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Maminha","q":750,"obs":"ou contra filé/alcatra, ao gosto","cu":52,"ct":39},{"n":"Cogumelo Champignon","q":100,"obs":null,"cu":28,"ct":2.8000000000000003},{"n":"Vinho Madeira","q":80,"obs":null,"cu":45,"ct":3.6},{"n":"Caldo de Carne","q":30,"obs":null,"cu":9.89,"ct":0.2967},{"n":"Creme de Leite","q":30,"obs":null,"cu":11.5,"ct":0.345},{"n":"Margarina c/ Sal","q":5,"obs":null,"cu":14.38,"ct":0.0719},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":46.12535,"qtd":1000,"cat":"PROTEÍNA","est_share":0.9843},{"code":"20","nome":"Polpettone","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Carne Moída","q":500,"obs":null,"cu":27.5,"ct":13.75},{"n":"Farinha de Rosca","q":80,"obs":null,"cu":13.5,"ct":1.08},{"n":"Ovos","q":80,"obs":null,"cu":8.89,"ct":0.7112},{"n":"Queijo Parmesão","q":40,"obs":null,"cu":70.91,"ct":2.8364},{"n":"Presunto","q":100,"obs":"recheio","cu":17.79,"ct":1.779},{"n":"Queijo Muçarela Comum","q":100,"obs":"recheio","cu":34,"ct":3.4000000000000004},{"n":"Cebola","q":40,"obs":null,"cu":4.5,"ct":0.18},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Cheiro Verde Desidratado","q":5,"obs":null,"cu":39.9,"ct":0.1995},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Tomate Fresco","q":40,"obs":"cobertura, ou molho de tomate","cu":6.5,"ct":0.26}],"total":24.309600000000003,"qtd":1000,"cat":"PROTEÍNA","est_share":0.0218},{"code":"21","nome":"Patinho à Parmegiana","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Patinho (Bovino)","q":450,"obs":null,"cu":38,"ct":17.1},{"n":"Farinha de Trigo","q":60,"obs":"empanar","cu":3.69,"ct":0.22139999999999999},{"n":"Ovos","q":60,"obs":"empanar","cu":8.89,"ct":0.5334},{"n":"Farinha de Rosca","q":80,"obs":"empanar","cu":13.5,"ct":1.08},{"n":"Óleo de Soja","q":20,"obs":"fritura","cu":7.66,"ct":0.1532},{"n":"Tomate Fresco","q":200,"obs":"molho, ou polpa de tomate","cu":6.5,"ct":1.3},{"n":"Queijo Muçarela Comum","q":120,"obs":"cobertura","cu":34,"ct":4.08},{"n":"Queijo Parmesão","q":10,"obs":"finalização","cu":70.91,"ct":0.7091}],"total":25.177100000000003,"qtd":1000,"cat":"PROTEÍNA","est_share":0.7308},{"code":"22","nome":"Batata Recheada tipo Outback","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Batata Fresca","q":550,"obs":null,"cu":5,"ct":2.75},{"n":"Bacon Picado","q":120,"obs":null,"cu":23.2,"ct":2.784},{"n":"Queijo Cheddar Cremoso","q":150,"obs":null,"cu":33.93,"ct":5.0895},{"n":"Creme de Leite","q":100,"obs":"substitui sour cream","cu":11.5,"ct":1.1500000000000001},{"n":"Margarina c/ Sal","q":30,"obs":null,"cu":14.38,"ct":0.4314},{"n":"Cheiro Verde Desidratado","q":20,"obs":null,"cu":39.9,"ct":0.798},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Queijo Parmesão","q":20,"obs":"finalização","cu":70.91,"ct":1.4182}],"total":14.444600000000001,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.1904},{"code":"23","nome":"Macarrão Mac and Cheese","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Penne","q":350,"obs":"ou parafuso/fusilli","cu":8.68,"ct":3.038},{"n":"Leite Integral UHT","q":250,"obs":null,"cu":5.89,"ct":1.4725},{"n":"Queijo Cheddar Cremoso","q":200,"obs":null,"cu":33.93,"ct":6.7860000000000005},{"n":"Margarina c/ Sal","q":40,"obs":null,"cu":14.38,"ct":0.5752},{"n":"Farinha de Trigo","q":30,"obs":"roux","cu":3.69,"ct":0.11069999999999999},{"n":"Queijo Muçarela Comum","q":100,"obs":null,"cu":34,"ct":3.4000000000000004},{"n":"Sal Refinado","q":20,"obs":null,"cu":2.35,"ct":0.047},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195}],"total":15.624400000000001,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"24","nome":"Lasanha de Berinjela","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Berinjela","q":400,"obs":"fatiada e grelhada, faz as camadas","cu":7,"ct":2.8000000000000003},{"n":"Tomate Fresco","q":250,"obs":"molho, ou polpa de tomate","cu":6.5,"ct":1.625},{"n":"Queijo Muçarela Comum","q":200,"obs":null,"cu":34,"ct":6.800000000000001},{"n":"Queijo Parmesão","q":60,"obs":"finalização","cu":70.91,"ct":4.2546},{"n":"Azeite de Oliva","q":40,"obs":null,"cu":40.25,"ct":1.61},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Manjericão Fresco","q":15,"obs":null,"cu":30,"ct":0.44999999999999996},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Orégano","q":10,"obs":null,"cu":32,"ct":0.32},{"n":"Farinha de Trigo","q":10,"obs":"leve empanado da berinjela, opcional","cu":3.69,"ct":0.0369}],"total":18.009999999999998,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.2757},{"code":"25","nome":"Rondelli de Abacaxi com Queijo Molho Branco","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":335,"obs":"massa","cu":20,"ct":6.7},{"n":"Abacaxi","q":200,"obs":"recheio, picado","cu":6.5,"ct":1.3},{"n":"Queijo Muçarela Comum","q":150,"obs":"recheio","cu":34,"ct":5.1},{"n":"Margarina c/ Sal","q":45,"obs":"molho branco","cu":14.38,"ct":0.6471},{"n":"Farinha de Trigo","q":20,"obs":"molho branco","cu":3.69,"ct":0.0738},{"n":"Leite Integral UHT","q":220,"obs":"molho branco","cu":5.89,"ct":1.2957999999999998},{"n":"Noz-moscada","q":5,"obs":"molho branco","cu":100,"ct":0.5},{"n":"Queijo Parmesão","q":20,"obs":"finalização","cu":70.91,"ct":1.4182},{"n":"Açúcar Refinado","q":5,"obs":"para caramelizar o abacaxi","cu":3.09,"ct":0.01545}],"total":17.05035,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0762},{"code":"26","nome":"Ravioli de Queijo ao Sugo","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":300,"obs":"massa","cu":20,"ct":6},{"n":"Requeijão Catupiry","q":150,"obs":"recheio","cu":32.3,"ct":4.845},{"n":"Queijo Parmesão","q":100,"obs":"recheio","cu":70.91,"ct":7.091},{"n":"Queijo Muçarela Comum","q":100,"obs":"recheio","cu":34,"ct":3.4000000000000004},{"n":"Ovos","q":20,"obs":"liga do recheio","cu":8.89,"ct":0.1778},{"n":"Tomate Fresco","q":250,"obs":"molho sugo, ou polpa de tomate","cu":6.5,"ct":1.625},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Azeite de Oliva","q":30,"obs":null,"cu":40.25,"ct":1.2075},{"n":"Manjericão Fresco","q":10,"obs":null,"cu":30,"ct":0.3},{"n":"Açúcar Refinado","q":5,"obs":null,"cu":3.09,"ct":0.01545},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Queijo Parmesão","q":20,"obs":"finalização","cu":70.91,"ct":1.4182}],"total":26.19345,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0769},{"code":"27","nome":"Filé Mignon Suíno ao Molho Gorgonzola","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Lombo Suíno (Bisteca Copa Lombo)","q":700,"obs":"ou file suino tipo mignon","cu":17,"ct":11.899999999999999},{"n":"Queijo Gorgonzola","q":120,"obs":null,"cu":146.21,"ct":17.5452},{"n":"Creme de Leite","q":130,"obs":null,"cu":11.5,"ct":1.495},{"n":"Margarina c/ Sal","q":20,"obs":null,"cu":14.38,"ct":0.2876},{"n":"Vinho Branco","q":20,"obs":null,"cu":25,"ct":0.5},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":31.7513,"qtd":1000,"cat":"PROTEÍNA","est_share":0.0157},{"code":"28","nome":"Coalhada Temperada","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Iogurte Natural","q":750,"obs":"base da coalhada","cu":12,"ct":9},{"n":"Creme de Leite","q":100,"obs":null,"cu":11.5,"ct":1.1500000000000001},{"n":"Azeite de Oliva","q":100,"obs":null,"cu":40.25,"ct":4.025},{"n":"Hortelã Fresca","q":20,"obs":null,"cu":35,"ct":0.7000000000000001},{"n":"Alho Fresco","q":10,"obs":null,"cu":18,"ct":0.18},{"n":"Sal Refinado","q":15,"obs":null,"cu":2.35,"ct":0.03525},{"n":"Pimenta do Reino","q":5,"obs":null,"cu":19.5,"ct":0.0975}],"total":15.18775,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.6505},{"code":"29","nome":"Ceviche de Manga","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Manga","q":560,"obs":null,"cu":7,"ct":3.9200000000000004},{"n":"Limão","q":150,"obs":"suco","cu":6,"ct":0.8999999999999999},{"n":"Cebola","q":100,"obs":null,"cu":4.5,"ct":0.45},{"n":"Pimenta Dedo de Moça","q":20,"obs":null,"cu":25,"ct":0.5},{"n":"Coentro Fresco","q":30,"obs":null,"cu":30,"ct":0.8999999999999999},{"n":"Azeite de Oliva","q":110,"obs":null,"cu":40.25,"ct":4.4275},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Açúcar Refinado","q":10,"obs":null,"cu":3.09,"ct":0.0309},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195}],"total":11.346900000000002,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.5878},{"code":"30","nome":"Salpicão de Frango","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Filé de Frango","q":400,"obs":"cozido e desfiado","cu":12.29,"ct":4.916},{"n":"Maionese","q":200,"obs":null,"cu":14.18,"ct":2.8360000000000003},{"n":"Batata Palha","q":120,"obs":"finalização","cu":20.68,"ct":2.4816},{"n":"Milho em Conserva","q":100,"obs":null,"cu":13.83,"ct":1.383},{"n":"Ervilha em Conserva","q":80,"obs":null,"cu":17.59,"ct":1.4072},{"n":"Cenoura Baby Congelada","q":60,"obs":null,"cu":12.65,"ct":0.759},{"n":"Cebola","q":20,"obs":null,"cu":4.5,"ct":0.09},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195}],"total":14.091300000000002,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.0064},{"code":"31","nome":"Pera Recheada com Gorgonzola","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Pera","q":600,"obs":null,"cu":9,"ct":5.3999999999999995},{"n":"Queijo Gorgonzola","q":200,"obs":null,"cu":146.21,"ct":29.242000000000004},{"n":"Castanha ou Pinoli","q":80,"obs":null,"cu":90,"ct":7.2},{"n":"Mel","q":60,"obs":null,"cu":56,"ct":3.36},{"n":"Vinho Tinto ou Conhaque","q":40,"obs":"redução","cu":28,"ct":1.12},{"n":"Margarina c/ Sal","q":20,"obs":null,"cu":14.38,"ct":0.2876}],"total":46.6096,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.2944},{"code":"32","nome":"Involtini de Abobrinha com Cream Cheese","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Abobrinha","q":500,"obs":"fatiada fina, grelhada","cu":6,"ct":3},{"n":"Cream Cheese","q":350,"obs":"recheio","cu":34.32,"ct":12.011999999999999},{"n":"Queijo Parmesão","q":60,"obs":null,"cu":70.91,"ct":4.2546},{"n":"Manjericão Fresco","q":20,"obs":null,"cu":30,"ct":0.6},{"n":"Azeite de Oliva","q":50,"obs":null,"cu":40.25,"ct":2.0125},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195}],"total":22.097599999999996,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.1629},{"code":"33","nome":"Quibe Cru","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Patinho (Bovino)","q":500,"obs":"moído fino","cu":38,"ct":19},{"n":"Trigo para Quibe (Bulgur)","q":250,"obs":null,"cu":15,"ct":3.75},{"n":"Cebola","q":100,"obs":null,"cu":4.5,"ct":0.45},{"n":"Hortelã Fresca","q":40,"obs":null,"cu":35,"ct":1.4000000000000001},{"n":"Azeite de Oliva","q":60,"obs":null,"cu":40.25,"ct":2.415},{"n":"Sal Refinado","q":20,"obs":null,"cu":2.35,"ct":0.047},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195},{"n":"Limão","q":20,"obs":null,"cu":6,"ct":0.12}],"total":27.377,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.9029},{"code":"34","nome":"Arancini Bolinho de Risoto","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Arroz Arbóreo","q":350,"obs":null,"cu":22.99,"ct":8.046499999999998},{"n":"Caldo de Legumes","q":200,"obs":null,"cu":9.89,"ct":1.9780000000000002},{"n":"Queijo Parmesão","q":60,"obs":null,"cu":70.91,"ct":4.2546},{"n":"Margarina c/ Sal","q":30,"obs":null,"cu":14.38,"ct":0.4314},{"n":"Queijo Muçarela Comum","q":100,"obs":"centro","cu":34,"ct":3.4000000000000004},{"n":"Farinha de Trigo","q":60,"obs":"empanar","cu":3.69,"ct":0.22139999999999999},{"n":"Ovos","q":60,"obs":"empanar","cu":8.89,"ct":0.5334},{"n":"Farinha de Rosca","q":100,"obs":"empanar","cu":13.5,"ct":1.35},{"n":"Óleo de Soja","q":30,"obs":"fritura","cu":7.66,"ct":0.2298},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":20.4686,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"35","nome":"Babaganoche","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Berinjela","q":650,"obs":null,"cu":7,"ct":4.55},{"n":"Tahine (Pasta de Gergelim)","q":150,"obs":null,"cu":45,"ct":6.75},{"n":"Azeite de Oliva","q":120,"obs":null,"cu":40.25,"ct":4.83},{"n":"Limão","q":40,"obs":null,"cu":6,"ct":0.24},{"n":"Alho Fresco","q":15,"obs":null,"cu":18,"ct":0.27},{"n":"Sal Refinado","q":15,"obs":null,"cu":2.35,"ct":0.03525},{"n":"Cominho","q":10,"obs":null,"cu":18.9,"ct":0.189}],"total":16.864250000000002,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.7003},{"code":"36","nome":"Polenta Frita","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Fubá (Farinha de Milho)","q":350,"obs":null,"cu":5,"ct":1.75},{"n":"Água","q":500,"obs":"cozimento da polenta","cu":0,"ct":0},{"n":"Queijo Parmesão","q":50,"obs":null,"cu":70.91,"ct":3.5455},{"n":"Margarina c/ Sal","q":40,"obs":null,"cu":14.38,"ct":0.5752},{"n":"Óleo de Soja","q":50,"obs":"fritura","cu":7.66,"ct":0.383},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":6.277200000000001,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.2788},{"code":"37","nome":"Pastel de Requeijão","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":550,"obs":null,"cu":20,"ct":11},{"n":"Requeijão Catupiry","q":400,"obs":null,"cu":32.3,"ct":12.92},{"n":"Óleo de Soja","q":50,"obs":"fritura","cu":7.66,"ct":0.383}],"total":24.303,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"38","nome":"Canelone de Banana e Canela","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Rolinho Primavera","q":300,"obs":"no lugar da massa de canelone","cu":18,"ct":5.3999999999999995},{"n":"Banana","q":500,"obs":null,"cu":5.5,"ct":2.75},{"n":"Açúcar Refinado","q":100,"obs":null,"cu":3.09,"ct":0.309},{"n":"Canela em Pó","q":20,"obs":null,"cu":40,"ct":0.8},{"n":"Margarina c/ Sal","q":50,"obs":"para saltear a banana","cu":14.38,"ct":0.7190000000000001},{"n":"Óleo de Soja","q":30,"obs":"fritura/selagem","cu":7.66,"ct":0.2298}],"total":10.207799999999999,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.8768}],"medias":{"ENTRADA FRIA":23.286227272727274,"PRATO QUENTE":18.825799999999997,"PROTEÍNA":28.85025},"estimados":["Alface Fresca","Tomate Cereja","Tomate Fresco","Manjericão Fresco","Vinagre Balsâmico","Berinjela","Cebola","Aipo","Alcaparra","Abóbora Cabotiá","Sálvia Fresca","Batata Fresca","Alho Fresco","Vinho Branco","Vinho Tinto ou Conhaque","Alho-poró","Ervas de Provence","Castanha ou Pinoli","Maminha","Vinho Madeira","Cogumelo Champignon","Patinho (Bovino)","Abacaxi","Iogurte Natural","Hortelã Fresca","Manga","Limão","Pimenta Dedo de Moça","Coentro Fresco","Pera","Abobrinha","Trigo para Quibe (Bulgur)","Tahine (Pasta de Gergelim)","Fubá (Farinha de Milho)","Banana","Canela em Pó","Massa de Rolinho Primavera"]};
+const CORES = ['#E73439','#3C2B25','#8B6A57','#D9C2AE','#C4B5A8'];
+const brl = n => n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const num = n => n.toLocaleString('pt-BR',{maximumFractionDigits:0});
+const CATS = ['ENTRADA FRIA','PRATO QUENTE','PROTEÍNA'];
+const STAR = '<svg class="star"><use href="#star"/></svg>';
+
+let filtro = 'TODAS', busca = '', ordem = 'ficha', cmv = 30;
+
+DADOS.fichas.forEach(f => {
+  const ord = [...f.ing].sort((a,b) => (b.ct||0)-(a.ct||0));
+  f.top = ord.slice(0,3).map(i => i.n);
+  const top4 = ord.slice(0,4);
+  const resto = ord.slice(4).reduce((s,i) => s+(i.ct||0),0);
+  f.comp = top4.map((i,k) => ({n:i.n, v:i.ct||0, c:CORES[k]}));
+  if (resto > 0.001) f.comp.push({n:'outros', v:resto, c:CORES[4]});
+  f.busca = (f.nome + ' ' + f.ing.map(i => i.n).join(' ')).toLowerCase();
+});
+
+const CORCAT = {'ENTRADA FRIA':'#E73439','PRATO QUENTE':'#8B6A57','PROTEÍNA':'#3C2B25'};
+const media = DADOS.fichas.reduce((s,f) => s+f.total,0) / DADOS.fichas.length;
+const menor = DADOS.fichas.reduce((a,b) => a.total < b.total ? a : b);
+const maior = DADOS.fichas.reduce((a,b) => a.total > b.total ? a : b);
+const custoTotal = DADOS.fichas.reduce((s,f) => s+f.total,0);
+const estPeso = DADOS.fichas.reduce((s,f) => s+f.total*f.est_share,0) / custoTotal * 100;
+const nEst = DADOS.fichas.filter(f => f.est_share >= .25).length;
+const porCat = CATS.map(c => {
+  const its = DADOS.fichas.filter(f => f.cat === c);
+  return {c, n:its.length, med: its.reduce((s,f)=>s+f.total,0)/its.length};
+});
+const maxCat = Math.max(...porCat.map(x => x.med));
+
+function renderPainel(){
+  const ord = [...DADOS.fichas].sort((a,b) => a.total-b.total);
+  const barras = ord.map(f => `<button data-abre="${f.code}" style="height:${(f.total/maior.total*100).toFixed(1)}%;background:${CORCAT[f.cat]}" title="${f.nome} — R$ ${brl(f.total)}/kg (${f.cat})" aria-label="${f.nome}, R$ ${brl(f.total)} por kg"></button>`).join('');
+  document.getElementById('painel').innerHTML = `
+  <div class="intro">
+    <h2>Fichas técnicas do cardápio Mapoli</h2>
+    <p>Os ${DADOS.fichas.length} pratos do cardápio com o custo de insumo apurado por quilo de prato pronto, divididos em entrada fria, prato quente e proteína. Cada ficha traz ingrediente, gramatura e custo linha a linha, e o preço de venda é simulado a partir do CMV que você definir. Base: planilha de fichas técnicas do Italiano Mapoli, com preços de insumo da aba Insumos.</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi">
+      <span class="k-rot">Pratos na ficha técnica</span>
+      <b class="k-num">${DADOS.fichas.length}</b>
+      <span class="k-sub">${porCat.map(x => x.n+' '+x.c.toLowerCase()).join(' · ')}</span>
+    </div>
+    <div class="kpi">
+      <span class="k-rot">Custo médio por kg</span>
+      <b class="k-num"><small>R$ </small>${brl(media)}</b>
+      <span class="k-sub">só insumo, sem mão de obra nem embalagem</span>
+    </div>
+    <div class="kpi destaque">
+      <span class="k-rot">Preço de venda sugerido</span>
+      <b class="k-num"><small>R$ </small>${brl(precoVenda(media))}</b>
+      <span class="k-sub">por kg, a ${cmv}% de CMV</span>
+    </div>
+    <div class="kpi">
+      <span class="k-rot">Amplitude de custo</span>
+      <b class="k-num">${brl(menor.total)}<small> a </small>${brl(maior.total)}</b>
+      <span class="k-sub">${menor.nome} → ${maior.nome}</span>
+    </div>
+  </div>
+
+  <div class="cats">
+    ${porCat.map(x => `<div class="cat-b">
+      <span class="nome"><i style="background:${CORCAT[x.c]}"></i>${x.c}</span>
+      <p class="val"><small style="font-size:.55em">R$ </small>${brl(x.med)}<small style="font-size:.5em;font-weight:400"> /kg</small></p>
+      <div class="barra-cat"><i style="width:${(x.med/maxCat*100).toFixed(1)}%;background:${CORCAT[x.c]}"></i></div>
+      <p class="pe">${x.n} pratos · venda a ${cmv}%: <b>R$ ${brl(precoVenda(x.med))}/kg</b></p>
+    </div>`).join('')}
+  </div>
+
+  <div class="dist">
+    <div class="dist-topo">
+      <h3>Custo por kg — todos os ${DADOS.fichas.length} pratos</h3>
+      <div class="leg">${CATS.map(c => `<span><i style="background:${CORCAT[c]}"></i>${c}</span>`).join('')}</div>
+    </div>
+    <div class="grafico">
+      ${barras}
+      <div class="linha-media" style="bottom:${(media/maior.total*100).toFixed(1)}%">
+        <span>média R$ ${brl(media)}</span>
+      </div>
+    </div>
+    <div class="dist-pes">
+      <span>Mais barato: <b>${menor.nome}</b> R$ ${brl(menor.total)}</span>
+      <span>Clique em qualquer barra para abrir a ficha</span>
+      <span>Mais caro: <b>${maior.nome}</b> R$ ${brl(maior.total)}</span>
+    </div>
+  </div>
+
+  <p class="risco">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9.5"/></svg>
+    <span><b>${estPeso.toFixed(0)}% do custo total</b> vem de insumos com preço estimado de mercado, ainda não cotados — ${nEst} pratos têm mais de 25% do custo nessa condição. Confirmar cotação antes de travar tabela de preço.</span>
+  </p>`;
+}
+
+document.getElementById('quadro').innerHTML = DADOS.fichas
+  .map(f => `<button data-abre="${f.code}">${f.nome}</button>`)
+  .join(`<span class="sep">${STAR}</span>`);
+
+const chips = document.getElementById('chips');
+chips.innerHTML = ['TODAS',...CATS].map(c =>
+  `<button class="chip" data-cat="${c}" aria-pressed="${c==='TODAS'}">${c==='TODAS'?'Todas':c}</button>`
+).join('');
+
+const precoVenda = custo => custo / (cmv/100);
+
+function cardHTML(f){
+  const soma = f.comp.reduce((s,c)=>s+c.v,0);
+  const barra = f.comp.map(c =>
+    `<span style="width:${(c.v/soma*100).toFixed(2)}%;background:${c.c}" title="${c.n}: R$ ${brl(c.v)}"></span>`).join('');
+  const med = DADOS.medias[f.cat];
+  const d = (f.total-med)/med*100;
+  const cls = d > 3 ? 'acima' : d < -3 ? 'abaixo' : '';
+  return `<button class="card" data-abre="${f.code}">
+    <div class="card-top">
+      <h3>${f.nome}</h3>
+      <span class="ficha">${f.code}</span>
+    </div>
+    <p class="ingr">${f.top.join(' · ')}</p>
+    <div class="barra" aria-hidden="true">${barra}</div>
+    <div class="card-baixo">
+      <div>
+        <span class="rotulo">Custo / kg</span>
+        <span class="custo">R$ ${brl(f.total)}</span>
+        <div class="delta ${cls}">${d>=0?'+':'−'}${Math.abs(d).toFixed(0)}% vs. média da categoria</div>
+      </div>
+      <div class="venda">
+        <span class="rotulo">Venda ${cmv}%</span>
+        <span class="v">R$ ${brl(precoVenda(f.total))}</span>
+      </div>
+    </div>
+  </button>`;
+}
+
+function visiveis(){
+  const r = DADOS.fichas.filter(f =>
+    (filtro === 'TODAS' || f.cat === filtro) && (!busca || f.busca.includes(busca)));
+  const s = {
+    ficha:(a,b)=>a.code.localeCompare(b.code),
+    nome:(a,b)=>a.nome.localeCompare(b.nome,'pt-BR'),
+    'custo-asc':(a,b)=>a.total-b.total,
+    'custo-desc':(a,b)=>b.total-a.total
+  }[ordem];
+  return r.sort(s);
+}
+
+function render(){
+  const fs = visiveis(), alvo = document.getElementById('lista');
+  if(!fs.length){
+    alvo.innerHTML = `<div class="vazio"><p>Nenhum prato encontrado</p><span>Ajuste a busca ou volte para “Todas”.</span></div>`;
+    return;
+  }
+  alvo.innerHTML = (filtro==='TODAS' ? CATS : [filtro]).map(c => {
+    const its = fs.filter(f => f.cat === c);
+    if(!its.length) return '';
+    const med = its.reduce((s,f)=>s+f.total,0)/its.length;
+    return `<section class="secao">
+      <div class="secao-cab">
+        <h2>${c}</h2>
+        <span class="meta">${its.length} pratos<span class="m-custo"> · média R$ ${brl(med)}/kg</span></span>
+        <span class="rule"></span>
+      </div>
+      <div class="grade">${its.map(cardHTML).join('')}</div>
+    </section>`;
+  }).join('');
+}
+
+function irPara(aba){
+  document.querySelectorAll('.aba').forEach(b =>
+    b.setAttribute('aria-selected', b.dataset.aba === aba));
+  document.getElementById('p-sumario').hidden = aba !== 'sumario';
+  document.getElementById('p-cardapio').hidden = aba !== 'cardapio';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+const gaveta = document.getElementById('gaveta'), fundo = document.getElementById('fundo');
+let ultimoFoco = null;
+
+function abrir(code){
+  const f = DADOS.fichas.find(x => x.code === code);
+  if(!f) return;
+  ultimoFoco = document.activeElement;
+  document.getElementById('g-ficha').textContent = 'Ficha ' + f.code;
+  document.getElementById('g-nome').textContent = f.nome;
+  document.getElementById('g-cat').textContent = f.cat;
+  const maxCt = Math.max(...f.ing.map(i => i.ct||0));
+  const linhas = [...f.ing].sort((a,b)=>(b.ct||0)-(a.ct||0)).map(i => {
+    const e = DADOS.estimados.includes(i.n);
+    const pct = f.total ? (i.ct||0)/f.total*100 : 0;
+    const cor = pct>=20 ? '#E73439' : pct>=10 ? '#8B6A57' : '#C4B5A8';
+    return `<tr>
+      <td>${i.n}${e?' <span class="est" title="Preço de insumo estimado — confirmar">✳</span>':''}
+        ${i.obs?`<span class="obs">${i.obs}</span>`:''}</td>
+      <td>${num(i.q)} g</td>
+      <td class="col-custo">${brl(i.cu)}</td>
+      <td class="col-custo"><div class="mini"><i style="width:${(maxCt?(i.ct/maxCt)*36:0).toFixed(1)}px;background:${cor}"></i><span>${brl(i.ct)}</span></div></td>
+    </tr>`;
+  }).join('');
+  const estPct = f.est_share*100;
+  document.getElementById('g-corpo').innerHTML = `
+    <div class="drawer-precos">
+      <div class="pbox"><span class="rotulo">Custo / kg</span><b>R$ ${brl(f.total)}</b></div>
+      <div class="pbox"><span class="rotulo">Custo / 100 g</span><b>R$ ${brl(f.total/10)}</b></div>
+      <div class="pbox destaque"><span class="rotulo">Venda a ${cmv}% CMV</span><b>R$ ${brl(precoVenda(f.total))}</b></div>
+    </div>
+    ${estPct >= 25 ? `<p class="aviso-est"><b>${estPct.toFixed(0)}% do custo</b> vem de insumos com preço estimado de mercado (marcados com ✳). Confirmar cotação antes de fechar preço de venda.</p>` : ''}
+    <h4 class="tit">Ingredientes · rendimento ${f.qtd ? num(f.qtd)+' g' : '1 kg'}</h4>
+    <table>
+      <thead><tr><th>Ingrediente</th><th>Qtd.</th>
+        <th class="col-custo">R$/kg</th><th class="col-custo">Custo</th></tr></thead>
+      <tbody>${linhas}
+        <tr class="total"><td>Total</td><td>${num(f.qtd||1000)} g</td>
+          <td class="col-custo"></td><td class="col-custo">R$ ${brl(f.total)}</td></tr>
+      </tbody>
+    </table>
+    <p class="legenda">✳ preço de insumo estimado a mercado, ainda não cotado. Demais valores conforme a aba Insumos da planilha de fichas técnicas.</p>`;
+  gaveta.classList.add('on'); fundo.classList.add('on');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('fechar').focus();
+}
+function fechar(){
+  gaveta.classList.remove('on'); fundo.classList.remove('on');
+  document.body.style.overflow = '';
+  if(ultimoFoco) ultimoFoco.focus();
+}
+
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-abre]');
+  if(a){ abrir(a.dataset.abre); return; }
+  const t = e.target.closest('[data-aba]');
+  if(t){ irPara(t.dataset.aba); return; }
+  const c = e.target.closest('.chip');
+  if(c){
+    filtro = c.dataset.cat;
+    chips.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x===c));
+    render();
+  }
+});
+document.getElementById('fechar').onclick = fechar;
+fundo.onclick = fechar;
+document.addEventListener('keydown', e => { if(e.key === 'Escape') fechar(); });
+document.getElementById('busca').addEventListener('input', e => {
+  busca = e.target.value.trim().toLowerCase(); render();
+});
+document.getElementById('ordem').addEventListener('change', e => { ordem = e.target.value; render(); });
+document.getElementById('cmv').addEventListener('input', e => {
+  const v = parseFloat(e.target.value);
+  if(v > 0 && v <= 100){
+    cmv = v; renderPainel(); render();
+    const d = document.getElementById('dec-cmv'); if(d) d.textContent = cmv + '%';
+  }
+});
+document.getElementById('modo').addEventListener('change', e => {
+  document.body.classList.toggle('sem-custo', e.target.checked);
+  if(e.target.checked) irPara('cardapio');
+});
+document.getElementById('csv').addEventListener('click', () => {
+  const linhas = [['Ficha','Categoria','Prato','Rendimento','Custo por kg (R$)','CMV alvo (%)','Preco sugerido por kg (R$)','% custo estimado']];
+  visiveis().forEach(f => linhas.push([
+    f.code, f.cat, f.nome, '1 kg',
+    f.total.toFixed(4).replace('.',','), String(cmv),
+    precoVenda(f.total).toFixed(2).replace('.',','),
+    (f.est_share*100).toFixed(0)
+  ]));
+  const csv = '\uFEFF' + linhas.map(l => l.map(c => `"${c}"`).join(';')).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+  a.download = 'mapoli_cardapio_custos.csv'; a.click();
+});
+
+renderPainel();
+render();
+</script>
+</body>
+</html>
