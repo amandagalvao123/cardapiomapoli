@@ -149,6 +149,87 @@ header{padding:64px 0 0;text-align:center}
 .risco svg{color:var(--pomodoro-ui);margin-top:2px}
 .risco b{color:var(--pomodoro-ui)}
 
+/* ---------- mudanças do cardápio ---------- */
+.mud{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin-bottom:20px}
+.mud .bloco{margin:0}
+.lista-mud{list-style:none;margin:0;padding:0}
+.lista-mud li{padding:11px 0;border-top:1px solid var(--linha);display:flex;gap:10px;align-items:flex-start}
+.lista-mud li:first-child{border-top:0;padding-top:0}
+.tag{font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 6px;
+  border-radius:3px;flex:none;margin-top:1px;min-width:52px;text-align:center}
+.tag.sai{background:var(--espresso);color:var(--crema)}
+.tag.entra{background:var(--pomodoro-ui);color:var(--crema)}
+.lista-mud b{display:block;font-size:.83rem;margin-bottom:2px}
+.lista-mud span{font-size:.75rem;color:var(--espresso-3);line-height:1.4}
+.lista-mud li.riscado b{text-decoration:line-through;text-decoration-thickness:1.5px;opacity:.75}
+
+/* ---------- comparativo ---------- */
+.lg-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.lg-cat{margin-bottom:18px}
+.lg-cat:last-child{margin-bottom:0}
+.lg-cat h4{font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  margin:0 0 9px;padding-bottom:7px;border-bottom:1px solid var(--linha-forte,var(--linha));color:var(--espresso)}
+.lg-item{display:flex;align-items:center;gap:9px;padding:6px 0;font-size:.81rem;line-height:1.3}
+.pt{width:9px;height:9px;border-radius:2px;flex:none}
+.pt.ambos{background:var(--espresso-3)}
+.pt.entra{background:var(--pomodoro)}
+.pt.aberto{background:#C2802F}
+.pt.fora{background:rgba(60,43,37,.16)}
+.pt.modelo{background:var(--pane)}
+.lg-item.fora{color:var(--espresso-3)}
+.leg-lg{display:flex;flex-wrap:wrap;gap:7px 16px;margin:0 0 16px;font-size:.7rem;color:var(--espresso-3)}
+.leg-lg span{display:flex;align-items:center;gap:7px}
+.so-nosso li{padding:11px 0;border-top:1px solid var(--linha);list-style:none}
+.so-nosso li:first-child{border-top:0;padding-top:0}
+.so-nosso b{display:block;font-size:.82rem;margin-bottom:2px}
+.so-nosso span{font-size:.76rem;color:var(--espresso-3);line-height:1.42}
+.so-nosso{margin:0;padding:0}
+.nota{font-size:.72rem;color:var(--espresso-3);line-height:1.45;margin:14px 0 0;
+  padding-top:12px;border-top:1px solid var(--linha)}
+
+/* ---------- preços ---------- */
+.trava{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha)}
+.trava div{background:var(--crema);padding:18px 18px 16px}
+.trava .v{font-family:var(--black);font-weight:900;font-size:clamp(1.5rem,4vw,2.15rem);
+  line-height:1;margin:7px 0 6px;color:var(--pomodoro-ui);font-variant-numeric:tabular-nums}
+.trava .d{font-size:.73rem;color:var(--espresso-3);line-height:1.38}
+table.tb{width:100%;border-collapse:collapse;font-size:.79rem}
+table.tb th{text-align:left;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--espresso-3);padding:0 10px 8px 0;font-weight:700}
+table.tb td{padding:10px 10px 10px 0;border-top:1px solid var(--linha);vertical-align:top;
+  line-height:1.4;text-align:left}
+table.tb td:nth-child(2){font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+table.tb td:last-child{color:var(--espresso-3);font-size:.76rem;padding-right:0}
+table.tb tr td:first-child{font-weight:700;width:29%}
+
+.sim{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sim-ctrl{display:grid;gap:13px}
+.linha-ctrl label{display:block;font-size:.62rem;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--espresso-3);margin-bottom:6px}
+.linha-ctrl input[type=range]{width:100%;accent-color:var(--pomodoro-ui)}
+.linha-ctrl .lv{display:flex;justify-content:space-between;align-items:baseline;font-size:.75rem;
+  color:var(--espresso-3);margin-top:3px}
+.linha-ctrl .lv b{font-size:1.02rem;color:var(--espresso);font-variant-numeric:tabular-nums}
+.sim-out{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linha);align-content:start}
+.sim-out div{background:var(--crema);padding:15px}
+.sim-out .sv{font-family:var(--black);font-weight:900;font-size:clamp(1.35rem,3.6vw,1.9rem);
+  line-height:1;margin-top:6px;font-variant-numeric:tabular-nums}
+.matriz{width:100%;border-collapse:collapse;font-size:.74rem;margin-top:6px}
+.matriz th{padding:7px 4px;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--espresso-3);font-weight:700}
+.matriz th:first-child{text-align:left}
+.matriz td{padding:9px 4px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums;
+  color:var(--crema);border:1px solid var(--crema);border-radius:2px}
+.matriz td.rot{background:transparent!important;color:var(--espresso);text-align:left;
+  font-size:.72rem;border:0}
+.matriz caption{caption-side:bottom;font-size:.71rem;color:var(--espresso-3);text-align:left;
+  padding-top:10px;line-height:1.45}
+
+@media (max-width:860px){
+  .mud,.sim,.trava{grid-template-columns:1fr}
+  .trava{gap:1px}
+}
+
 /* quadro / índice */
 .quadro{
   margin:22px 0 0;padding:20px 0 22px;border-top:1px solid var(--linha-esc);
@@ -325,6 +406,7 @@ footer b{color:var(--crema)}
   .card{break-inside:avoid;box-shadow:0 0 0 1px #999}
   .card:hover{transform:none}
   .grade{grid-template-columns:repeat(3,1fr)}
+  .matriz td,.tag,.pt,.trava .v{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .secao-cab h2,.vazio p{color:#000}
   .secao-cab .meta,footer{color:#333}
   header{padding-top:0}
@@ -357,7 +439,9 @@ footer b{color:var(--crema)}
 <div class="wrap">
   <div class="abas" role="tablist" aria-label="Seções">
     <button class="aba" id="a-sumario" role="tab" aria-selected="true" aria-controls="p-sumario" data-aba="sumario">Sumário</button>
-    <button class="aba" id="a-cardapio" role="tab" aria-selected="false" aria-controls="p-cardapio" data-aba="cardapio">Cardápio <span class="n" id="n-aba">38 pratos</span></button>
+    <button class="aba" id="a-cardapio" role="tab" aria-selected="false" aria-controls="p-cardapio" data-aba="cardapio">Cardápio <span class="n" id="n-aba">34 pratos</span></button>
+    <button class="aba" id="a-lg" role="tab" aria-selected="false" aria-controls="p-lg" data-aba="lg">La Gôndola <span class="n">comparativo</span></button>
+    <button class="aba" id="a-precos" role="tab" aria-selected="false" aria-controls="p-precos" data-aba="precos">Preços <span class="n">definidos na call</span></button>
   </div>
 </div>
 
@@ -385,6 +469,12 @@ footer b{color:var(--crema)}
             <b>Baixar CSV</b>
             <span>Exporta o que estiver filtrado, com custo e preço sugerido, já no formato do Excel em português.</span></div></div>
           <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
+            <b>Aba La Gôndola</b>
+            <span>Comparativo item a item com o concorrente. As entradas extras que vão entrar estão marcadas em vermelho, separadas das fichas técnicas.</span></div></div>
+          <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
+            <b>Aba Preços</b>
+            <span>Tudo que foi definido na call, com simulador de bufê livre: preço, consumo médio e custo do quilo em quatro réguas.</span></div></div>
+          <div class="passo"><svg class="star" aria-hidden="true"><use href="#star"/></svg><div>
             <b>Imprimir</b>
             <span>Ctrl+P sai com sumário e cardápio completos em papel, sem os controles de tela.</span></div></div>
         </div>
@@ -408,9 +498,10 @@ footer b{color:var(--crema)}
         <div class="bloco">
           <h3>O que precisa de decisão</h3>
           <ol class="dec">
-            <li><b>Definir o CMV alvo</b><span>O painel está simulando <span id="dec-cmv">30%</span>. Fechar esse número fecha a tabela de preço dos 38 pratos de uma vez.</span></li>
-            <li><b>Cotar os insumos estimados</b><span>29% do custo total ainda é estimativa de mercado, concentrada em 15 pratos. Enquanto não cotar, o preço tem essa margem de erro embutida.</span></li>
-            <li><b>Resolver o spread entre categorias</b><span>Proteína custa 53% mais que prato quente por quilo. Se a venda for preço único por kg, o mix de saída é que define a margem real — não o preço da tabela.</span></li>
+            <li><b>Fechar a régua do jantar</b><span>A reunião saiu alinhada em R$ 89 por pessoa, com inauguração a R$ 49. O calendário completo, os cenários de teste e o simulador de CMV estão na aba Preços.</span></li>
+            <li><b>Montar as fichas dos 11 itens novos</b><span>Medalhão de mignon e salmão grelhado ainda não têm custo apurado — e são justamente os dois que sustentam os R$ 89. Enquanto não tiverem ficha, o custo do jantar está subestimado.</span></li>
+            <li><b>Cotar os insumos estimados</b><span><span id="dec-est">25%</span> do custo dos pratos ativos ainda é estimativa de mercado, sem cotação de fornecedor.</span></li>
+            <li><b>Resolver o spread entre categorias</b><span>Proteína custa <span id="dec-spread">40%</span> mais que prato quente por quilo. No bufê livre é o mix de saída que define a margem, não a tabela.</span></li>
           </ol>
         </div>
       </div>
@@ -424,6 +515,8 @@ footer b{color:var(--crema)}
 
 <section id="p-cardapio" role="tabpanel" aria-labelledby="a-cardapio" hidden>
   <div class="wrap">
+    <div class="mud" id="mudancas"></div>
+    <div class="bloco" id="pendentes" style="margin-bottom:20px"></div>
     <nav class="quadro" id="quadro" aria-label="Índice de pratos"></nav>
   </div>
 
@@ -451,6 +544,14 @@ footer b{color:var(--crema)}
   <main class="wrap" id="lista"></main>
 </section>
 
+<section id="p-lg" role="tabpanel" aria-labelledby="a-lg" hidden>
+  <div class="wrap" id="c-lg"></div>
+</section>
+
+<section id="p-precos" role="tabpanel" aria-labelledby="a-precos" hidden>
+  <div class="wrap" id="c-precos"></div>
+</section>
+
 <div class="wrap"><footer>
   <span>Rendimento padrão <b>1 kg</b> por ficha · custos de insumo conforme a aba <b>Insumos</b> da planilha de fichas técnicas.</span>
   <span class="no-print">Preço sugerido = custo ÷ CMV alvo.</span>
@@ -471,6 +572,7 @@ footer b{color:var(--crema)}
 
 <script>
 const DADOS = {"fichas":[{"code":"01","nome":"Salada Caesar","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Alface Fresca","q":350,"obs":null,"cu":4.5,"ct":1.575},{"n":"Filé de Frango","q":250,"obs":"grelhado e cortado","cu":12.29,"ct":3.0725},{"n":"Bacon Picado","q":60,"obs":"crocante","cu":23.2,"ct":1.392},{"n":"Croutons","q":120,"obs":null,"cu":70,"ct":8.4},{"n":"Queijo Parmesão","q":60,"obs":"lascas/ralado","cu":70.91,"ct":4.2546},{"n":"Molho Caesar Pronto","q":150,"obs":null,"cu":41.75,"ct":6.2625},{"n":"Tomate Cereja","q":10,"obs":"decoração","cu":12,"ct":0.12}],"total":25.0766,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.0676},{"code":"02","nome":"Salada Tomate Confit Caprese","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Tomate Fresco","q":400,"obs":"para confitar","cu":6.5,"ct":2.6},{"n":"Muçarela de Búfala","q":350,"obs":null,"cu":108,"ct":37.8},{"n":"Azeite de Oliva","q":120,"obs":null,"cu":40.25,"ct":4.83},{"n":"Manjericão Fresco","q":20,"obs":null,"cu":30,"ct":0.6},{"n":"Açúcar Refinado","q":30,"obs":"para o confit","cu":3.09,"ct":0.09269999999999999},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Pimenta do Reino","q":5,"obs":null,"cu":19.5,"ct":0.0975},{"n":"Vinagre Balsâmico","q":65,"obs":"redução","cu":28,"ct":1.82}],"total":47.863699999999994,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.1049},{"code":"03","nome":"Caponata de Berinjela","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Berinjela","q":400,"obs":null,"cu":7,"ct":2.8000000000000003},{"n":"Tomate Fresco","q":200,"obs":"ou polpa de tomate","cu":6.5,"ct":1.3},{"n":"Cebola","q":120,"obs":null,"cu":4.5,"ct":0.54},{"n":"Aipo","q":50,"obs":null,"cu":9,"ct":0.45},{"n":"Azeitona Verde Fatiada","q":90,"obs":null,"cu":21.49,"ct":1.9340999999999997},{"n":"Alcaparra","q":30,"obs":null,"cu":65,"ct":1.95},{"n":"Azeite de Oliva","q":60,"obs":null,"cu":40.25,"ct":2.415},{"n":"Vinagre Álcool","q":30,"obs":null,"cu":2.37,"ct":0.0711},{"n":"Açúcar Refinado","q":15,"obs":null,"cu":3.09,"ct":0.046349999999999995},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":11.518299999999998,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.6112},{"code":"04","nome":"Torradas","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Torrada Pronta","q":900,"obs":null,"cu":16,"ct":14.4},{"n":"Azeite de Oliva","q":70,"obs":"para pincelar","cu":40.25,"ct":2.8175000000000003},{"n":"Alho em Pó","q":20,"obs":"ou alho fresco","cu":28.9,"ct":0.578},{"n":"Orégano","q":10,"obs":null,"cu":32,"ct":0.32}],"total":18.1155,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.0},{"code":"05","nome":"Rondelli Presunto e Queijo Molho Branco","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":335,"obs":"massa","cu":20,"ct":6.7},{"n":"Presunto","q":150,"obs":"recheio","cu":17.79,"ct":2.6685},{"n":"Queijo Muçarela Comum","q":150,"obs":"recheio","cu":34,"ct":5.1},{"n":"Margarina c/ Sal","q":45,"obs":"molho branco","cu":14.38,"ct":0.6471},{"n":"Farinha de Trigo","q":20,"obs":"molho branco","cu":3.69,"ct":0.0738},{"n":"Leite Integral UHT","q":250,"obs":"molho branco","cu":5.89,"ct":1.4725},{"n":"Noz-moscada","q":5,"obs":"molho branco","cu":100,"ct":0.5},{"n":"Queijo Parmesão","q":40,"obs":"finalização","cu":70.91,"ct":2.8364},{"n":"Pimenta do Reino","q":5,"obs":null,"cu":19.5,"ct":0.0975}],"total":20.0958,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"06","nome":"Rondelli Abóbora Cabotiá","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":335,"obs":"massa","cu":20,"ct":6.7},{"n":"Abóbora Cabotiá","q":320,"obs":"recheio, cozida","cu":5.5,"ct":1.76},{"n":"Queijo Parmesão","q":70,"obs":"recheio","cu":70.91,"ct":4.9637},{"n":"Margarina c/ Sal","q":180,"obs":"molho manteiga e sálvia","cu":14.38,"ct":2.5884},{"n":"Sálvia Fresca","q":5,"obs":"molho","cu":40,"ct":0.2},{"n":"Noz-moscada","q":5,"obs":null,"cu":100,"ct":0.5},{"n":"Pimenta do Reino","q":5,"obs":null,"cu":19.5,"ct":0.0975},{"n":"Queijo Parmesão","q":80,"obs":"finalização","cu":70.91,"ct":5.6728}],"total":22.4824,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0872},{"code":"07","nome":"Lasanha à Bolonhesa","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":190,"obs":"massa","cu":20,"ct":3.8},{"n":"Carne Moída","q":220,"obs":"molho bolonhesa","cu":27.5,"ct":6.05},{"n":"Tomate Fresco","q":180,"obs":"ou polpa de tomate","cu":6.5,"ct":1.17},{"n":"Cebola","q":40,"obs":null,"cu":4.5,"ct":0.18},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Azeite de Oliva","q":20,"obs":null,"cu":40.25,"ct":0.805},{"n":"Queijo Muçarela Comum","q":150,"obs":"camadas","cu":34,"ct":5.1},{"n":"Queijo Parmesão","q":60,"obs":"finalização","cu":70.91,"ct":4.2546},{"n":"Leite Integral UHT","q":100,"obs":"molho branco umectante","cu":5.89,"ct":0.589},{"n":"Margarina c/ Sal","q":15,"obs":"molho branco","cu":14.38,"ct":0.2157},{"n":"Farinha de Trigo","q":10,"obs":"molho branco","cu":3.69,"ct":0.0369},{"n":"Orégano","q":10,"obs":null,"cu":32,"ct":0.32}],"total":22.6112,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0637},{"code":"08","nome":"Lasanha Presunto e Queijo Molho Branco","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":190,"obs":"massa","cu":20,"ct":3.8},{"n":"Presunto","q":180,"obs":null,"cu":17.79,"ct":3.2022},{"n":"Queijo Muçarela Comum","q":150,"obs":null,"cu":34,"ct":5.1},{"n":"Margarina c/ Sal","q":45,"obs":"molho branco","cu":14.38,"ct":0.6471},{"n":"Farinha de Trigo","q":25,"obs":"molho branco","cu":3.69,"ct":0.09225},{"n":"Leite Integral UHT","q":350,"obs":"molho branco","cu":5.89,"ct":2.0614999999999997},{"n":"Noz-moscada","q":5,"obs":null,"cu":100,"ct":0.5},{"n":"Queijo Parmesão","q":50,"obs":"finalização","cu":70.91,"ct":3.5455},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":18.9603,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"09","nome":"Nhoque ao Sugo","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Batata Fresca","q":490,"obs":null,"cu":5,"ct":2.45},{"n":"Farinha de Trigo","q":150,"obs":null,"cu":3.69,"ct":0.5535},{"n":"Ovos","q":60,"obs":null,"cu":8.89,"ct":0.5334},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Tomate Fresco","q":220,"obs":"molho sugo, ou polpa","cu":6.5,"ct":1.43},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Azeite de Oliva","q":30,"obs":null,"cu":40.25,"ct":1.2075},{"n":"Açúcar Refinado","q":10,"obs":null,"cu":3.09,"ct":0.0309},{"n":"Manjericão Fresco","q":5,"obs":null,"cu":30,"ct":0.15},{"n":"Orégano","q":5,"obs":null,"cu":32,"ct":0.16},{"n":"Queijo Parmesão","q":15,"obs":"finalização","cu":70.91,"ct":1.06365}],"total":7.692450000000001,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.5356},{"code":"10","nome":"Nhoque 4 Queijos","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Batata Fresca","q":480,"obs":null,"cu":5,"ct":2.4},{"n":"Farinha de Trigo","q":150,"obs":null,"cu":3.69,"ct":0.5535},{"n":"Ovos","q":60,"obs":null,"cu":8.89,"ct":0.5334},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Creme de Leite","q":150,"obs":"molho 4 queijos","cu":11.5,"ct":1.7249999999999999},{"n":"Requeijão Catupiry","q":80,"obs":null,"cu":32.3,"ct":2.5839999999999996},{"n":"Queijo Parmesão","q":40,"obs":null,"cu":70.91,"ct":2.8364},{"n":"Queijo Provolone","q":30,"obs":null,"cu":51.12,"ct":1.5335999999999999}],"total":12.1894,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.1969},{"code":"11","nome":"Penne ao Pesto","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Penne","q":540,"obs":null,"cu":8.68,"ct":4.6872},{"n":"Manjericão Fresco","q":120,"obs":null,"cu":30,"ct":3.5999999999999996},{"n":"Azeite de Oliva","q":180,"obs":null,"cu":40.25,"ct":7.245},{"n":"Queijo Parmesão","q":80,"obs":null,"cu":70.91,"ct":5.6728},{"n":"Castanha ou Pinoli","q":40,"obs":null,"cu":90,"ct":3.6},{"n":"Alho Fresco","q":10,"obs":null,"cu":18,"ct":0.18},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Leite Integral UHT","q":20,"obs":"opcional, água/leite p/ liga","cu":5.89,"ct":0.1178}],"total":25.126299999999997,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.2937},{"code":"12","nome":"Espaguete à Bolonhesa","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Espaguete","q":500,"obs":null,"cu":12.38,"ct":6.19},{"n":"Carne Moída","q":200,"obs":null,"cu":27.5,"ct":5.5},{"n":"Tomate Fresco","q":200,"obs":"ou polpa de tomate","cu":6.5,"ct":1.3},{"n":"Cebola","q":40,"obs":null,"cu":4.5,"ct":0.18},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Azeite de Oliva","q":20,"obs":null,"cu":40.25,"ct":0.805},{"n":"Queijo Parmesão","q":25,"obs":null,"cu":70.91,"ct":1.77275},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175},{"n":"Orégano","q":5,"obs":null,"cu":32,"ct":0.16}],"total":16.0095,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0981},{"code":"13","nome":"Risoto de Alho-poró","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Arroz Arbóreo","q":350,"obs":null,"cu":22.99,"ct":8.046499999999998},{"n":"Alho-poró","q":250,"obs":null,"cu":14,"ct":3.5},{"n":"Margarina c/ Sal","q":60,"obs":null,"cu":14.38,"ct":0.8628},{"n":"Vinho Branco","q":80,"obs":null,"cu":25,"ct":2},{"n":"Caldo de Legumes","q":200,"obs":null,"cu":9.89,"ct":1.9780000000000002},{"n":"Queijo Parmesão","q":50,"obs":null,"cu":70.91,"ct":3.5455},{"n":"Cebola","q":5,"obs":null,"cu":4.5,"ct":0.0225},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":19.96705,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.2766},{"code":"14","nome":"Risoto Caprese","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Arroz Arbóreo","q":350,"obs":null,"cu":22.99,"ct":8.046499999999998},{"n":"Tomate Fresco","q":200,"obs":null,"cu":6.5,"ct":1.3},{"n":"Muçarela de Búfala","q":180,"obs":null,"cu":108,"ct":19.439999999999998},{"n":"Manjericão Fresco","q":20,"obs":null,"cu":30,"ct":0.6},{"n":"Caldo de Legumes","q":180,"obs":null,"cu":9.89,"ct":1.7802},{"n":"Margarina c/ Sal","q":40,"obs":null,"cu":14.38,"ct":0.5752},{"n":"Queijo Parmesão","q":25,"obs":null,"cu":70.91,"ct":1.77275},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":33.526399999999995,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0567},{"code":"15","nome":"Risoto de Parmesão","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Arroz Arbóreo","q":400,"obs":null,"cu":22.99,"ct":9.196},{"n":"Queijo Parmesão","q":150,"obs":null,"cu":70.91,"ct":10.6365},{"n":"Margarina c/ Sal","q":60,"obs":null,"cu":14.38,"ct":0.8628},{"n":"Vinho Branco","q":60,"obs":null,"cu":25,"ct":1.5},{"n":"Caldo de Legumes","q":300,"obs":null,"cu":9.89,"ct":2.967},{"n":"Cebola","q":20,"obs":null,"cu":4.5,"ct":0.09},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":25.275799999999997,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0629},{"code":"16","nome":"Frango Grelhado Molho Provençal","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Filé de Frango","q":650,"obs":null,"cu":12.29,"ct":7.9885},{"n":"Creme de Leite","q":150,"obs":null,"cu":11.5,"ct":1.7249999999999999},{"n":"Mostarda","q":30,"obs":null,"cu":10.08,"ct":0.3024},{"n":"Alho Fresco","q":10,"obs":null,"cu":18,"ct":0.18},{"n":"Ervas de Provence","q":10,"obs":null,"cu":55,"ct":0.55},{"n":"Vinho Branco","q":100,"obs":null,"cu":25,"ct":2.5},{"n":"Azeite de Oliva","q":30,"obs":null,"cu":40.25,"ct":1.2075},{"n":"Sal Refinado","q":20,"obs":null,"cu":2.35,"ct":0.047}],"total":14.5004,"qtd":1000,"cat":"PROTEÍNA","est_share":0.2228},{"code":"17","nome":"Porco Assado (Lombo)","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Lombo Suíno (Bisteca Copa Lombo)","q":850,"obs":null,"cu":17,"ct":14.45},{"n":"Azeite de Oliva","q":40,"obs":null,"cu":40.25,"ct":1.61},{"n":"Alho Fresco","q":10,"obs":null,"cu":18,"ct":0.18},{"n":"Sal Refinado","q":20,"obs":null,"cu":2.35,"ct":0.047},{"n":"Folha de Louro","q":5,"obs":null,"cu":59.9,"ct":0.2995},{"n":"Vinho Branco","q":75,"obs":"marinada","cu":25,"ct":1.875}],"total":18.461499999999997,"qtd":1000,"cat":"PROTEÍNA","est_share":0.1113},{"code":"18","nome":"Maminha Assada com Molho","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Maminha","q":700,"obs":null,"cu":52,"ct":36.4},{"n":"Creme de Leite","q":120,"obs":null,"cu":11.5,"ct":1.38},{"n":"Mostarda","q":20,"obs":null,"cu":10.08,"ct":0.2016},{"n":"Pimenta do Reino","q":20,"obs":"em grão/moída","cu":19.5,"ct":0.39},{"n":"Vinho Tinto ou Conhaque","q":100,"obs":null,"cu":28,"ct":2.8000000000000003},{"n":"Margarina c/ Sal","q":30,"obs":null,"cu":14.38,"ct":0.4314},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":41.62649999999999,"qtd":1000,"cat":"PROTEÍNA","est_share":0.9417},{"code":"19","nome":"Carne ao Molho Madeira","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Maminha","q":750,"obs":"ou contra filé/alcatra, ao gosto","cu":52,"ct":39},{"n":"Cogumelo Champignon","q":100,"obs":null,"cu":28,"ct":2.8000000000000003},{"n":"Vinho Madeira","q":80,"obs":null,"cu":45,"ct":3.6},{"n":"Caldo de Carne","q":30,"obs":null,"cu":9.89,"ct":0.2967},{"n":"Creme de Leite","q":30,"obs":null,"cu":11.5,"ct":0.345},{"n":"Margarina c/ Sal","q":5,"obs":null,"cu":14.38,"ct":0.0719},{"n":"Sal Refinado","q":5,"obs":null,"cu":2.35,"ct":0.01175}],"total":46.12535,"qtd":1000,"cat":"PROTEÍNA","est_share":0.9843},{"code":"20","nome":"Polpettone","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Carne Moída","q":500,"obs":null,"cu":27.5,"ct":13.75},{"n":"Farinha de Rosca","q":80,"obs":null,"cu":13.5,"ct":1.08},{"n":"Ovos","q":80,"obs":null,"cu":8.89,"ct":0.7112},{"n":"Queijo Parmesão","q":40,"obs":null,"cu":70.91,"ct":2.8364},{"n":"Presunto","q":100,"obs":"recheio","cu":17.79,"ct":1.779},{"n":"Queijo Muçarela Comum","q":100,"obs":"recheio","cu":34,"ct":3.4000000000000004},{"n":"Cebola","q":40,"obs":null,"cu":4.5,"ct":0.18},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Cheiro Verde Desidratado","q":5,"obs":null,"cu":39.9,"ct":0.1995},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Tomate Fresco","q":40,"obs":"cobertura, ou molho de tomate","cu":6.5,"ct":0.26}],"total":24.309600000000003,"qtd":1000,"cat":"PROTEÍNA","est_share":0.0218},{"code":"21","nome":"Patinho à Parmegiana","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Patinho (Bovino)","q":450,"obs":null,"cu":38,"ct":17.1},{"n":"Farinha de Trigo","q":60,"obs":"empanar","cu":3.69,"ct":0.22139999999999999},{"n":"Ovos","q":60,"obs":"empanar","cu":8.89,"ct":0.5334},{"n":"Farinha de Rosca","q":80,"obs":"empanar","cu":13.5,"ct":1.08},{"n":"Óleo de Soja","q":20,"obs":"fritura","cu":7.66,"ct":0.1532},{"n":"Tomate Fresco","q":200,"obs":"molho, ou polpa de tomate","cu":6.5,"ct":1.3},{"n":"Queijo Muçarela Comum","q":120,"obs":"cobertura","cu":34,"ct":4.08},{"n":"Queijo Parmesão","q":10,"obs":"finalização","cu":70.91,"ct":0.7091}],"total":25.177100000000003,"qtd":1000,"cat":"PROTEÍNA","est_share":0.7308},{"code":"22","nome":"Batata Recheada tipo Outback","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Batata Fresca","q":550,"obs":null,"cu":5,"ct":2.75},{"n":"Bacon Picado","q":120,"obs":null,"cu":23.2,"ct":2.784},{"n":"Queijo Cheddar Cremoso","q":150,"obs":null,"cu":33.93,"ct":5.0895},{"n":"Creme de Leite","q":100,"obs":"substitui sour cream","cu":11.5,"ct":1.1500000000000001},{"n":"Margarina c/ Sal","q":30,"obs":null,"cu":14.38,"ct":0.4314},{"n":"Cheiro Verde Desidratado","q":20,"obs":null,"cu":39.9,"ct":0.798},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Queijo Parmesão","q":20,"obs":"finalização","cu":70.91,"ct":1.4182}],"total":14.444600000000001,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.1904},{"code":"23","nome":"Macarrão Mac and Cheese","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Penne","q":350,"obs":"ou parafuso/fusilli","cu":8.68,"ct":3.038},{"n":"Leite Integral UHT","q":250,"obs":null,"cu":5.89,"ct":1.4725},{"n":"Queijo Cheddar Cremoso","q":200,"obs":null,"cu":33.93,"ct":6.7860000000000005},{"n":"Margarina c/ Sal","q":40,"obs":null,"cu":14.38,"ct":0.5752},{"n":"Farinha de Trigo","q":30,"obs":"roux","cu":3.69,"ct":0.11069999999999999},{"n":"Queijo Muçarela Comum","q":100,"obs":null,"cu":34,"ct":3.4000000000000004},{"n":"Sal Refinado","q":20,"obs":null,"cu":2.35,"ct":0.047},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195}],"total":15.624400000000001,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"24","nome":"Lasanha de Berinjela","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Berinjela","q":400,"obs":"fatiada e grelhada, faz as camadas","cu":7,"ct":2.8000000000000003},{"n":"Tomate Fresco","q":250,"obs":"molho, ou polpa de tomate","cu":6.5,"ct":1.625},{"n":"Queijo Muçarela Comum","q":200,"obs":null,"cu":34,"ct":6.800000000000001},{"n":"Queijo Parmesão","q":60,"obs":"finalização","cu":70.91,"ct":4.2546},{"n":"Azeite de Oliva","q":40,"obs":null,"cu":40.25,"ct":1.61},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Manjericão Fresco","q":15,"obs":null,"cu":30,"ct":0.44999999999999996},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Orégano","q":10,"obs":null,"cu":32,"ct":0.32},{"n":"Farinha de Trigo","q":10,"obs":"leve empanado da berinjela, opcional","cu":3.69,"ct":0.0369}],"total":18.009999999999998,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.2757},{"code":"25","nome":"Rondelli de Abacaxi com Queijo Molho Branco","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":335,"obs":"massa","cu":20,"ct":6.7},{"n":"Abacaxi","q":200,"obs":"recheio, picado","cu":6.5,"ct":1.3},{"n":"Queijo Muçarela Comum","q":150,"obs":"recheio","cu":34,"ct":5.1},{"n":"Margarina c/ Sal","q":45,"obs":"molho branco","cu":14.38,"ct":0.6471},{"n":"Farinha de Trigo","q":20,"obs":"molho branco","cu":3.69,"ct":0.0738},{"n":"Leite Integral UHT","q":220,"obs":"molho branco","cu":5.89,"ct":1.2957999999999998},{"n":"Noz-moscada","q":5,"obs":"molho branco","cu":100,"ct":0.5},{"n":"Queijo Parmesão","q":20,"obs":"finalização","cu":70.91,"ct":1.4182},{"n":"Açúcar Refinado","q":5,"obs":"para caramelizar o abacaxi","cu":3.09,"ct":0.01545}],"total":17.05035,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0762},{"code":"26","nome":"Ravioli de Queijo ao Sugo","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":300,"obs":"massa","cu":20,"ct":6},{"n":"Requeijão Catupiry","q":150,"obs":"recheio","cu":32.3,"ct":4.845},{"n":"Queijo Parmesão","q":100,"obs":"recheio","cu":70.91,"ct":7.091},{"n":"Queijo Muçarela Comum","q":100,"obs":"recheio","cu":34,"ct":3.4000000000000004},{"n":"Ovos","q":20,"obs":"liga do recheio","cu":8.89,"ct":0.1778},{"n":"Tomate Fresco","q":250,"obs":"molho sugo, ou polpa de tomate","cu":6.5,"ct":1.625},{"n":"Alho Fresco","q":5,"obs":null,"cu":18,"ct":0.09},{"n":"Azeite de Oliva","q":30,"obs":null,"cu":40.25,"ct":1.2075},{"n":"Manjericão Fresco","q":10,"obs":null,"cu":30,"ct":0.3},{"n":"Açúcar Refinado","q":5,"obs":null,"cu":3.09,"ct":0.01545},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Queijo Parmesão","q":20,"obs":"finalização","cu":70.91,"ct":1.4182}],"total":26.19345,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0769},{"code":"27","nome":"Filé Mignon Suíno ao Molho Gorgonzola","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Lombo Suíno (Bisteca Copa Lombo)","q":700,"obs":"ou file suino tipo mignon","cu":17,"ct":11.899999999999999},{"n":"Queijo Gorgonzola","q":120,"obs":null,"cu":146.21,"ct":17.5452},{"n":"Creme de Leite","q":130,"obs":null,"cu":11.5,"ct":1.495},{"n":"Margarina c/ Sal","q":20,"obs":null,"cu":14.38,"ct":0.2876},{"n":"Vinho Branco","q":20,"obs":null,"cu":25,"ct":0.5},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":31.7513,"qtd":1000,"cat":"PROTEÍNA","est_share":0.0157},{"code":"28","nome":"Coalhada Temperada","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Iogurte Natural","q":750,"obs":"base da coalhada","cu":12,"ct":9},{"n":"Creme de Leite","q":100,"obs":null,"cu":11.5,"ct":1.1500000000000001},{"n":"Azeite de Oliva","q":100,"obs":null,"cu":40.25,"ct":4.025},{"n":"Hortelã Fresca","q":20,"obs":null,"cu":35,"ct":0.7000000000000001},{"n":"Alho Fresco","q":10,"obs":null,"cu":18,"ct":0.18},{"n":"Sal Refinado","q":15,"obs":null,"cu":2.35,"ct":0.03525},{"n":"Pimenta do Reino","q":5,"obs":null,"cu":19.5,"ct":0.0975}],"total":15.18775,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.6505},{"code":"29","nome":"Ceviche de Manga","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Manga","q":560,"obs":null,"cu":7,"ct":3.9200000000000004},{"n":"Limão","q":150,"obs":"suco","cu":6,"ct":0.8999999999999999},{"n":"Cebola","q":100,"obs":null,"cu":4.5,"ct":0.45},{"n":"Pimenta Dedo de Moça","q":20,"obs":null,"cu":25,"ct":0.5},{"n":"Coentro Fresco","q":30,"obs":null,"cu":30,"ct":0.8999999999999999},{"n":"Azeite de Oliva","q":110,"obs":null,"cu":40.25,"ct":4.4275},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Açúcar Refinado","q":10,"obs":null,"cu":3.09,"ct":0.0309},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195}],"total":11.346900000000002,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.5878},{"code":"30","nome":"Salpicão de Frango","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Filé de Frango","q":400,"obs":"cozido e desfiado","cu":12.29,"ct":4.916},{"n":"Maionese","q":200,"obs":null,"cu":14.18,"ct":2.8360000000000003},{"n":"Batata Palha","q":120,"obs":"finalização","cu":20.68,"ct":2.4816},{"n":"Milho em Conserva","q":100,"obs":null,"cu":13.83,"ct":1.383},{"n":"Ervilha em Conserva","q":80,"obs":null,"cu":17.59,"ct":1.4072},{"n":"Cenoura Baby Congelada","q":60,"obs":null,"cu":12.65,"ct":0.759},{"n":"Cebola","q":20,"obs":null,"cu":4.5,"ct":0.09},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195}],"total":14.091300000000002,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.0064},{"code":"31","nome":"Pera Recheada com Gorgonzola","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Pera","q":600,"obs":null,"cu":9,"ct":5.3999999999999995},{"n":"Queijo Gorgonzola","q":200,"obs":null,"cu":146.21,"ct":29.242000000000004},{"n":"Castanha ou Pinoli","q":80,"obs":null,"cu":90,"ct":7.2},{"n":"Mel","q":60,"obs":null,"cu":56,"ct":3.36},{"n":"Vinho Tinto ou Conhaque","q":40,"obs":"redução","cu":28,"ct":1.12},{"n":"Margarina c/ Sal","q":20,"obs":null,"cu":14.38,"ct":0.2876}],"total":46.6096,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.2944},{"code":"32","nome":"Involtini de Abobrinha com Cream Cheese","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Abobrinha","q":500,"obs":"fatiada fina, grelhada","cu":6,"ct":3},{"n":"Cream Cheese","q":350,"obs":"recheio","cu":34.32,"ct":12.011999999999999},{"n":"Queijo Parmesão","q":60,"obs":null,"cu":70.91,"ct":4.2546},{"n":"Manjericão Fresco","q":20,"obs":null,"cu":30,"ct":0.6},{"n":"Azeite de Oliva","q":50,"obs":null,"cu":40.25,"ct":2.0125},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195}],"total":22.097599999999996,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.1629},{"code":"33","nome":"Quibe Cru","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Patinho (Bovino)","q":500,"obs":"moído fino","cu":38,"ct":19},{"n":"Trigo para Quibe (Bulgur)","q":250,"obs":null,"cu":15,"ct":3.75},{"n":"Cebola","q":100,"obs":null,"cu":4.5,"ct":0.45},{"n":"Hortelã Fresca","q":40,"obs":null,"cu":35,"ct":1.4000000000000001},{"n":"Azeite de Oliva","q":60,"obs":null,"cu":40.25,"ct":2.415},{"n":"Sal Refinado","q":20,"obs":null,"cu":2.35,"ct":0.047},{"n":"Pimenta do Reino","q":10,"obs":null,"cu":19.5,"ct":0.195},{"n":"Limão","q":20,"obs":null,"cu":6,"ct":0.12}],"total":27.377,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.9029},{"code":"34","nome":"Arancini Bolinho de Risoto","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Arroz Arbóreo","q":350,"obs":null,"cu":22.99,"ct":8.046499999999998},{"n":"Caldo de Legumes","q":200,"obs":null,"cu":9.89,"ct":1.9780000000000002},{"n":"Queijo Parmesão","q":60,"obs":null,"cu":70.91,"ct":4.2546},{"n":"Margarina c/ Sal","q":30,"obs":null,"cu":14.38,"ct":0.4314},{"n":"Queijo Muçarela Comum","q":100,"obs":"centro","cu":34,"ct":3.4000000000000004},{"n":"Farinha de Trigo","q":60,"obs":"empanar","cu":3.69,"ct":0.22139999999999999},{"n":"Ovos","q":60,"obs":"empanar","cu":8.89,"ct":0.5334},{"n":"Farinha de Rosca","q":100,"obs":"empanar","cu":13.5,"ct":1.35},{"n":"Óleo de Soja","q":30,"obs":"fritura","cu":7.66,"ct":0.2298},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":20.4686,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"35","nome":"Babaganoche","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Berinjela","q":650,"obs":null,"cu":7,"ct":4.55},{"n":"Tahine (Pasta de Gergelim)","q":150,"obs":null,"cu":45,"ct":6.75},{"n":"Azeite de Oliva","q":120,"obs":null,"cu":40.25,"ct":4.83},{"n":"Limão","q":40,"obs":null,"cu":6,"ct":0.24},{"n":"Alho Fresco","q":15,"obs":null,"cu":18,"ct":0.27},{"n":"Sal Refinado","q":15,"obs":null,"cu":2.35,"ct":0.03525},{"n":"Cominho","q":10,"obs":null,"cu":18.9,"ct":0.189}],"total":16.864250000000002,"qtd":1000,"cat":"ENTRADA FRIA","est_share":0.7003},{"code":"36","nome":"Polenta Frita","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Fubá (Farinha de Milho)","q":350,"obs":null,"cu":5,"ct":1.75},{"n":"Água","q":500,"obs":"cozimento da polenta","cu":0,"ct":0},{"n":"Queijo Parmesão","q":50,"obs":null,"cu":70.91,"ct":3.5455},{"n":"Margarina c/ Sal","q":40,"obs":null,"cu":14.38,"ct":0.5752},{"n":"Óleo de Soja","q":50,"obs":"fritura","cu":7.66,"ct":0.383},{"n":"Sal Refinado","q":10,"obs":null,"cu":2.35,"ct":0.0235}],"total":6.277200000000001,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.2788},{"code":"37","nome":"Pastel de Requeijão","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Pastel","q":550,"obs":null,"cu":20,"ct":11},{"n":"Requeijão Catupiry","q":400,"obs":null,"cu":32.3,"ct":12.92},{"n":"Óleo de Soja","q":50,"obs":"fritura","cu":7.66,"ct":0.383}],"total":24.303,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.0},{"code":"38","nome":"Canelone de Banana e Canela","rend":"Rendimento: 1 kg (1000 g)","ing":[{"n":"Massa de Rolinho Primavera","q":300,"obs":"no lugar da massa de canelone","cu":18,"ct":5.3999999999999995},{"n":"Banana","q":500,"obs":null,"cu":5.5,"ct":2.75},{"n":"Açúcar Refinado","q":100,"obs":null,"cu":3.09,"ct":0.309},{"n":"Canela em Pó","q":20,"obs":null,"cu":40,"ct":0.8},{"n":"Margarina c/ Sal","q":50,"obs":"para saltear a banana","cu":14.38,"ct":0.7190000000000001},{"n":"Óleo de Soja","q":30,"obs":"fritura/selagem","cu":7.66,"ct":0.2298}],"total":10.207799999999999,"qtd":1000,"cat":"PRATO QUENTE","est_share":0.8768}],"medias":{"ENTRADA FRIA":23.286227272727274,"PRATO QUENTE":18.825799999999997,"PROTEÍNA":28.85025},"estimados":["Alface Fresca","Tomate Cereja","Tomate Fresco","Manjericão Fresco","Vinagre Balsâmico","Berinjela","Cebola","Aipo","Alcaparra","Abóbora Cabotiá","Sálvia Fresca","Batata Fresca","Alho Fresco","Vinho Branco","Vinho Tinto ou Conhaque","Alho-poró","Ervas de Provence","Castanha ou Pinoli","Maminha","Vinho Madeira","Cogumelo Champignon","Patinho (Bovino)","Abacaxi","Iogurte Natural","Hortelã Fresca","Manga","Limão","Pimenta Dedo de Moça","Coentro Fresco","Pera","Abobrinha","Trigo para Quibe (Bulgur)","Tahine (Pasta de Gergelim)","Fubá (Farinha de Milho)","Banana","Canela em Pó","Massa de Rolinho Primavera"]};
+const EXTRA = {"reuniao":{"data":"21/08/2026","quem":"Rapha Palma, Amanda Angélica, Amanda Galvão"},"saem":[{"code":"24","nome":"Lasanha de Berinjela","cat":"PRATO QUENTE","motivo":"Testada duas vezes no Casaria, sem saída."},{"code":"36","nome":"Polenta Frita","cat":"PRATO QUENTE","motivo":"A Marca não acertou o ponto em três receitas."},{"code":"19","nome":"Carne ao Molho Madeira","cat":"PROTEÍNA","motivo":"Rapha cortou na reunião: sobrepõe a maminha."},{"code":"17","nome":"Porco Assado (Lombo)","cat":"PROTEÍNA","motivo":"Fica só a maminha como assado. O suíno entra pelo filé mignon ao gorgonzola."}],"entram":[{"nome":"Bruschetta ao Pomodoro","cat":"ENTRADA FRIA","origem":"La Gôndola","obs":"Entrada extra do La Gôndola. Ficha a montar."},{"nome":"Pão de Brioche","cat":"ENTRADA FRIA","origem":"La Gôndola","obs":"Entrada extra do La Gôndola. Ficha a montar."},{"nome":"Carpaccio","cat":"ENTRADA FRIA","origem":"La Gôndola","obs":"Rapha pediu para incluir: os dois concorrentes têm. Ficha a montar."},{"nome":"Rosbife","cat":"ENTRADA FRIA","origem":"La Gôndola","obs":"Entrada extra do La Gôndola. Ficha a montar."},{"nome":"Arroz Branco","cat":"PRATO QUENTE","origem":"Base","obs":"Esquecido na primeira montagem. Ficha a montar."},{"nome":"Pizza Brie com Mel","cat":"PIZZA","origem":"Decisão da reunião","obs":"Sabor especial, assada no forninho e solta ao longo da noite."},{"nome":"Pizza Bacon com Damasco","cat":"PIZZA","origem":"Decisão da reunião","obs":"Segundo sabor especial, citado pelo Rapha. Confirmar."},{"nome":"Medalhão de Mignon","cat":"PROTEÍNA","origem":"La Gôndola","obs":"É o item que sustenta a régua dos R$ 89. Ficha a montar, custo alto."},{"nome":"Salmão Grelhado","cat":"PROTEÍNA","origem":"Decisão da reunião","obs":"Puxa a régua junto com o mignon. Ficha a montar, custo alto."},{"nome":"Mousse de Maracujá","cat":"SOBREMESA","origem":"Decisão da reunião","obs":"Na travessa, cara de artesanal. Amanda vai montar a ficha."},{"nome":"Doce de Chocolate","cat":"SOBREMESA","origem":"Decisão da reunião","obs":"Segundo doce tradicional. Opções levantadas: tortinha, pudim de copo."}],"pendentes":[{"t":"Rondelli de Abóbora Cabotiá","d":"Amanda eliminaria; Rapha disse para manter, é memória afetiva da Bologna e não tem em outro lugar. Precisa de decisão."},{"t":"Arancini de risoto","d":"Amanda sugeriu mover para entrada fria, no lugar do croquete de bacalhau do La Gôndola. Muda de categoria ou fica no prato quente?"},{"t":"Os quatro árabes","d":"Rapha pediu os quatro. Hoje temos quibe cru, coalhada e babaganoche. Falta confirmar o quarto (homus?)."},{"t":"Azeitonas, farofa da casa e croquete de bacalhau","d":"O La Gôndola tem os três. Não ficou decidido se entram."},{"t":"Carne grelhada de bufê","d":"Rapha sugeriu alcatra ou manter o patinho usado hoje no almoço. Se entrar mignon, a régua sobe junto."},{"t":"Taxa de 10%","d":"Rapha não vê problema em cobrar, para bancar garçom melhor. Falta definir."},{"t":"Sobremesa: quantas","d":"Rapha travou em dois doces, no máximo três. Definir o segundo."}],"lg":{"fonte":"Cardápio noturno do La Gôndola registrado em visita. Pode não refletir a carta completa da casa.","cats":[{"n":"Entradas & antepastos","itens":[["Bruschetta ao pomodoro","entra"],["Coalhada seca","ambos"],["Pão de brioche","entra"],["Salada Caesar","ambos"],["Tomate-cereja","ambos"],["Ceviche","ambos"],["Carpaccio","entra"],["Rosbife","entra"],["Salpicão","ambos"],["Farofa de casa","aberto"],["Pera recheada com gorgonzola","ambos"],["Carpaccio de berinjela","ambos"],["Crostini de alho","ambos"],["Azeitonas preta, roxa e verde","aberto"],["Palito de cordeiro","fora"],["Croquete completo de bacalhau","aberto"]]},{"n":"Carnes & pratos quentes","itens":[["Frango passarinho","aberto"],["Polpetone à bolonhesa","ambos"],["Medalhão de mignon","entra"],["Batata chips Asterix","fora"]]},{"n":"Massas","itens":[["Capelletti ao molho rosé","fora"],["Ravioli ao funghi","ambos"],["Ravioli de Grana Padano ao molho funghi","fora"],["Massas ao pesto","ambos"],["Massas ao alho e óleo","fora"]]},{"n":"Arroz & risotos","itens":[["Arroz branco","entra"],["Risoto funghi (caprese)","ambos"]]},{"n":"Peixes","itens":[["Filé de Saint Peter ao molho","fora"]]},{"n":"Pizzas","itens":[["Pizza Margherita","fora"]]},{"n":"Molhos para massas (montados na hora)","itens":[["Pomodoro","modelo"],["Bolonhesa","modelo"],["Carbonara","modelo"],["Alfredo","modelo"],["Funghi chileno","modelo"],["Pomodoro e panna","modelo"]]}]},"soNosso":[{"g":"Rondellis e lasanhas","i":"Rondelli de presunto e queijo, rondelli de cabotiá, rondelli de abacaxi, lasanha à bolonhesa, lasanha de presunto e queijo. O La Gôndola não tem nenhum rondelli nem lasanha."},{"g":"Massas montadas","i":"Nhoque ao sugo, nhoque 4 queijos, espaguete à bolonhesa, mac and cheese. Entregamos o prato pronto; eles montam massa e molho na hora."},{"g":"Risotos próprios","i":"Risoto de alho-poró e risoto de parmesão, além do caprese que os dois têm."},{"g":"Entradas árabes","i":"Quibe cru, babaganoche e coalhada temperada — o La Gôndola só tem a coalhada."},{"g":"Petiscos quentes","i":"Arancini de risoto, batata recheada tipo Outback, pastel de requeijão, involtini de abobrinha."},{"g":"Proteínas de bufê","i":"Frango grelhado ao provençal, maminha assada, patinho à parmegiana, filé mignon suíno ao gorgonzola, polpettone."},{"g":"Doce quente","i":"Canelone de banana com canela — o Rapha viu que o La Gôndola também deixa."},{"g":"Pizza especial","i":"Dois sabores autorais no forninho. Eles só tinham margherita no dia da visita."}],"precos":{"travado":[{"t":"Régua do jantar","v":"R$ 89","d":"por pessoa, bufê livre. É o número que o Rapha pediu para sair alinhado da reunião."},{"t":"Inauguração","v":"R$ 49","d":"comunicando “de 89 por 49”, por duas semanas."},{"t":"Almoço seg–sex","v":"R$ 8,90","d":"por 100 g. Mantém o modelo por quilo, não muda."},{"t":"Domingo","v":"Fechado","d":"Rapha: “não quis comprar essa briga” com o La Gôndola."}],"calendario":[["Segunda a sexta, almoço","R$ 8,90 /100 g","Por quilo. Modelo atual, mantido. Público da manhã não pode ser perdido."],["Segunda e terça, jantar","R$ 39","Teste de rua nas duas primeiras semanas. Possivelmente sem mignon."],["Segunda a quinta, jantar","R$ 49","Preço de inauguração. Sobe para R$ 59–69 depois de duas semanas."],["Sexta e sábado, jantar","R$ 89","Sem promoção. Régua cheia, com mignon e salmão."],["Sábado, almoço","R$ 89 (R$ 49 na inauguração)","Bufê livre, não por quilo. Marketing vai chamar de “sábado do italiano”."],["Futuro","R$ 99","Sexta e sábado à noite, depois que a régua pegar."]],"referencias":[["La Gôndola, domingo","R$ 159","Status de domingo em Londrina. Comida simples, bem feita, porção pequena."],["Casarão","R$ 39 a R$ 49","Público que o Rapha quer justamente não misturar com o dos R$ 89."],["Pizza & Massas (B18)","—","Rodízio de perfil parecido; Amanda vai puxar a venda para referência."]],"bebidas":[["Jarra de suco","Abortada","CMV do suco é R$ 2,80 com polpa. Três copos a R$ 11,90 dão R$ 34 — não dá para cobrar isso numa jarra."],["Suco","Só limão, copo de 440 ml","Limão é o mais barato e é o único que fica 100% fruta. Tamanho único, padrão Madeiro."],["Copo geral","250 ml, modelo mais grosso","Um só tamanho para refrigerante, água e água com gás. Referência: Rascal."],["Taças","Cerveja e vinho, padrão Isaías","Taças diferentes entre si, mantidas."],["Caipirinha","Pronta, em jarra na geladeira","Preparada à tarde. Não vai ter ninguém no bar à noite."],["Drink","Negroni para testar","Único drink alcoólico forte. Amanda vai puxar a venda de drinks do Isaías e a Pink Lemonade do B18."],["Cerveja 600 ml","Cortada","109 unidades em 30 dias no comparativo, cerca de 4 por dia. Não paga o trabalho de abrir."]],"servico":[["Jantar","Atendimento e pagamento na mesa","Garçom oferece bebida, acompanha e leva a conta. É o que diferencia do almoço."],["Almoço","Ficha na entrada, sem mudança","Não mexer para não perder o público da manhã."],["Taxa de 10%","Em avaliação","Rapha: bancaria garçons melhores, não vê problema em cobrar."],["iFood","Depois","Só depois do noturno rodando, e já com embalagem porcionada para puxar ticket, não marmita."]]}};
 const CORES = ['#E73439','#3C2B25','#8B6A57','#D9C2AE','#C4B5A8'];
 const brl = n => n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
 const num = n => n.toLocaleString('pt-BR',{maximumFractionDigits:0});
@@ -488,6 +590,157 @@ DADOS.fichas.forEach(f => {
   if (resto > 0.001) f.comp.push({n:'outros', v:resto, c:CORES[4]});
   f.busca = (f.nome + ' ' + f.ing.map(i => i.n).join(' ')).toLowerCase();
 });
+
+
+// ---------- pratos cortados na reunião ----------
+const SAI = new Set(EXTRA.saem.map(x => x.code));
+DADOS.fichas = DADOS.fichas.filter(f => !SAI.has(f.code));
+
+// ---------- aba La Gôndola ----------
+const LEG = {ambos:'Os dois têm', entra:'Vai entrar na Mapoli', aberto:'Em aberto',
+             fora:'Fica só no La Gôndola', modelo:'Modelo diferente'};
+
+function renderLG(){
+  const cats = EXTRA.lg.cats.map(c => `<div class="lg-cat">
+    <h4>${c.n}</h4>
+    ${c.itens.map(([n,st]) => `<div class="lg-item ${st}"><span class="pt ${st}" title="${LEG[st]}"></span>${n}</div>`).join('')}
+  </div>`).join('');
+
+  document.getElementById('c-lg').innerHTML = `
+  <div class="painel">
+    <div class="intro">
+      <h2>Mapoli × La Gôndola</h2>
+      <p>O que cada casa tem, lado a lado, para definir a régua. As entradas extras que só o La Gôndola tinha estão marcadas em vermelho — são exatamente as que já foram aprovadas para entrar. Este quadro é referência de mercado: nenhum item daqui está nas fichas técnicas nem entra na conta de custo até ter ficha própria.</p>
+    </div>
+  </div>
+
+  <div class="blocos">
+    <div class="bloco">
+      <h3>Cardápio do La Gôndola</h3>
+      <div class="leg-lg">
+        ${Object.entries(LEG).map(([k,v]) => `<span><i class="pt ${k}"></i>${v}</span>`).join('')}
+      </div>
+      <div class="lg-grid">${cats}</div>
+      <p class="nota">${EXTRA.lg.fonte}</p>
+    </div>
+
+    <div class="bloco">
+      <h3>Só a Mapoli tem</h3>
+      <ul class="so-nosso">
+        ${EXTRA.soNosso.map(x => `<li><b>${x.g}</b><span>${x.i}</span></li>`).join('')}
+      </ul>
+      <p class="nota">Diferença de modelo: o La Gôndola serve massa e molho montados na hora, com seis molhos à escolha. A Mapoli entrega o prato já montado — por isso a lista de prato quente parece maior, mas a variedade percebida pelo cliente é equivalente.</p>
+    </div>
+  </div>`;
+}
+
+// ---------- aba Preços ----------
+let pPreco = 89, pConsumo = 600, pCusto = 0, pMeta = 30;
+
+function corCMV(v){
+  if(v <= pMeta) return '#4E6B45';
+  if(v <= pMeta + 5) return '#C2802F';
+  return '#E73439';
+}
+
+function renderPrecos(){
+  const P = EXTRA.precos;
+  const custoPessoa = pCusto * pConsumo/1000;
+  const cmvSim = custoPessoa / pPreco * 100;
+  const margem = pPreco - custoPessoa;
+
+  const precos = [39,49,59,69,79,89,99], gramas = [400,500,600,700,800];
+  const matriz = `<table class="matriz">
+    <thead><tr><th>Preço</th>${gramas.map(g => `<th>${g} g</th>`).join('')}</tr></thead>
+    <tbody>${precos.map(pr => `<tr>
+      <td class="rot">R$ ${pr}</td>
+      ${gramas.map(g => {const v = pCusto*g/1000/pr*100;
+        return `<td style="background:${corCMV(v)}" title="R$ ${pr} com ${g} g: CMV de ${v.toFixed(1)}%">${v.toFixed(0)}%</td>`;}).join('')}
+    </tr>`).join('')}</tbody>
+    <caption>Cada célula é o CMV que sai daquele preço por pessoa com aquele consumo médio, usando custo de R$ ${brl(pCusto)}/kg. Verde dentro da meta de ${pMeta}%, âmbar até ${pMeta+5}%, vermelho acima.</caption>
+  </table>`;
+
+  document.getElementById('c-precos').innerHTML = `
+  <div class="painel">
+    <div class="intro">
+      <h2>Preços definidos na call de ${EXTRA.reuniao.data}</h2>
+      <p>O que ficou travado, o que ficou como cenário e o que ainda depende de teste de rua. O simulador abaixo usa o custo médio das fichas técnicas já prontas — mignon e salmão ainda não têm ficha, então o custo real do jantar vai ficar acima do que aparece aqui.</p>
+    </div>
+    <div class="trava">
+      ${P.travado.map(x => `<div>
+        <span class="k-rot">${x.t}</span>
+        <p class="v">${x.v}</p>
+        <p class="d">${x.d}</p></div>`).join('')}
+    </div>
+  </div>
+
+  <div class="blocos">
+    <div class="bloco">
+      <h3>Simulador do bufê livre</h3>
+      <div class="sim">
+        <div class="sim-ctrl">
+          <div class="linha-ctrl">
+            <label for="s-preco">Preço por pessoa</label>
+            <input type="range" id="s-preco" min="29" max="129" step="1" value="${pPreco}">
+            <div class="lv"><span>R$ 29</span><b>R$ ${pPreco},00</b><span>R$ 129</span></div>
+          </div>
+          <div class="linha-ctrl">
+            <label for="s-consumo">Consumo médio por pessoa</label>
+            <input type="range" id="s-consumo" min="300" max="1000" step="25" value="${pConsumo}">
+            <div class="lv"><span>300 g</span><b>${num(pConsumo)} g</b><span>1000 g</span></div>
+          </div>
+          <div class="linha-ctrl">
+            <label for="s-custo">Custo do quilo servido</label>
+            <input type="range" id="s-custo" min="15" max="45" step="0.5" value="${pCusto}">
+            <div class="lv"><span>R$ 15</span><b>R$ ${brl(pCusto)}</b><span>R$ 45</span></div>
+          </div>
+          <div class="linha-ctrl">
+            <label for="s-meta">Meta de CMV</label>
+            <input type="range" id="s-meta" min="15" max="45" step="1" value="${pMeta}">
+            <div class="lv"><span>15%</span><b>${pMeta}%</b><span>45%</span></div>
+          </div>
+        </div>
+        <div class="sim-out">
+          <div><span class="k-rot">Custo por pessoa</span><p class="sv">R$ ${brl(custoPessoa)}</p></div>
+          <div><span class="k-rot">CMV</span><p class="sv" style="color:${corCMV(cmvSim)}">${cmvSim.toFixed(1)}%</p></div>
+          <div><span class="k-rot">Margem bruta</span><p class="sv">R$ ${brl(margem)}</p></div>
+          <div><span class="k-rot">Por 100 pessoas</span><p class="sv">R$ ${num(margem*100)}</p></div>
+        </div>
+      </div>
+      ${matriz}
+    </div>
+
+    <div class="bloco">
+      <h3>Calendário de preços</h3>
+      <table class="tb"><thead><tr><th>Quando</th><th>Preço</th><th>Observação</th></tr></thead>
+      <tbody>${P.calendario.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table>
+      <p class="nota">O almoço por quilo a R$ 8,90/100 g equivale a R$ 89 o quilo — mesmo número da régua do jantar, mas cobrado por peso e não por pessoa. Com o custo médio atual, o CMV do almoço fica em ${(pCusto/89*100).toFixed(1)}%.</p>
+    </div>
+
+    <div class="duplo">
+      <div class="bloco">
+        <h3>Bebidas</h3>
+        <table class="tb"><tbody>${P.bebidas.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table>
+      </div>
+      <div class="bloco">
+        <h3>Serviço e mercado</h3>
+        <table class="tb"><tbody>${P.servico.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table>
+        <h3 style="margin-top:22px">Referências de preço</h3>
+        <table class="tb"><tbody>${P.referencias.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table>
+      </div>
+    </div>
+  </div>`;
+
+  const liga = (id, fn) => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', e => { fn(parseFloat(e.target.value)); renderPrecos();
+      const n = document.getElementById(id); n.focus(); });
+  };
+  liga('s-preco', v => pPreco = v);
+  liga('s-consumo', v => pConsumo = v);
+  liga('s-custo', v => pCusto = v);
+  liga('s-meta', v => pMeta = v);
+}
 
 const CORCAT = {'ENTRADA FRIA':'#E73439','PRATO QUENTE':'#8B6A57','PROTEÍNA':'#3C2B25'};
 const media = DADOS.fichas.reduce((s,f) => s+f.total,0) / DADOS.fichas.length;
@@ -508,7 +761,7 @@ function renderPainel(){
   document.getElementById('painel').innerHTML = `
   <div class="intro">
     <h2>Fichas técnicas do cardápio Mapoli</h2>
-    <p>Os ${DADOS.fichas.length} pratos do cardápio com o custo de insumo apurado por quilo de prato pronto, divididos em entrada fria, prato quente e proteína. Cada ficha traz ingrediente, gramatura e custo linha a linha, e o preço de venda é simulado a partir do CMV que você definir. Base: planilha de fichas técnicas do Italiano Mapoli, com preços de insumo da aba Insumos.</p>
+    <p>Atualizado com as decisões da reunião de ${EXTRA.reuniao.data}. São ${DADOS.fichas.length} pratos com ficha técnica fechada — ${EXTRA.saem.length} foram cortados e ${EXTRA.entram.length} itens novos entraram na lista, ainda sem ficha. Os números abaixo consideram só os ${DADOS.fichas.length} pratos custeados. As abas <b>La Gôndola</b> e <b>Preços</b> trazem o comparativo de cardápio e a tabela definida na call.</p>
   </div>
   <div class="kpis">
     <div class="kpi">
@@ -641,8 +894,8 @@ function render(){
 function irPara(aba){
   document.querySelectorAll('.aba').forEach(b =>
     b.setAttribute('aria-selected', b.dataset.aba === aba));
-  document.getElementById('p-sumario').hidden = aba !== 'sumario';
-  document.getElementById('p-cardapio').hidden = aba !== 'cardapio';
+  ['sumario','cardapio','lg','precos'].forEach(k =>
+    document.getElementById('p-'+k).hidden = k !== aba);
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
@@ -741,8 +994,37 @@ document.getElementById('csv').addEventListener('click', () => {
   a.download = 'mapoli_cardapio_custos.csv'; a.click();
 });
 
+document.getElementById('mudancas').innerHTML = `
+  <div class="bloco">
+    <h3>Saíram na reunião de ${EXTRA.reuniao.data} — ${EXTRA.saem.length} pratos</h3>
+    <ul class="lista-mud">${EXTRA.saem.map(x => `<li class="riscado">
+      <span class="tag sai">Sai</span><div><b>${x.nome}</b><span>${x.motivo}</span></div></li>`).join('')}</ul>
+    <p class="nota">Estes quatro já estão fora das contas do painel. As fichas continuam na planilha, caso precise reverter.</p>
+  </div>
+  <div class="bloco">
+    <h3>A incluir — ${EXTRA.entram.length} itens ainda sem ficha técnica</h3>
+    <ul class="lista-mud">${EXTRA.entram.map(x => `<li>
+      <span class="tag entra">Entra</span><div><b>${x.nome}</b><span>${x.cat.toLowerCase()} · ${x.origem} — ${x.obs}</span></div></li>`).join('')}</ul>
+    <p class="nota">Nenhum destes entra no custo médio nem no preço sugerido: não têm ficha técnica ainda. Mignon e salmão são os que mais vão puxar o custo para cima.</p>
+  </div>`;
+
+document.getElementById('pendentes').innerHTML =
+  `<h3>Pontos do cardápio ainda em aberto — ${EXTRA.pendentes.length}</h3>
+   <ol class="dec">${EXTRA.pendentes.map(x =>
+     `<li><b>${x.t}</b><span>${x.d}</span></li>`).join('')}</ol>`;
+
+pCusto = Math.round(media*2)/2;
 renderPainel();
 render();
+renderLG();
+renderPrecos();
+(() => {
+  const e = document.getElementById('dec-est');
+  if(e) e.textContent = estPeso.toFixed(0) + '%';
+  const sp = document.getElementById('dec-spread');
+  const pq = porCat.find(x => x.c === 'PRATO QUENTE'), pr = porCat.find(x => x.c === 'PROTEÍNA');
+  if(sp && pq && pr) sp.textContent = ((pr.med/pq.med - 1)*100).toFixed(0) + '%';
+})();
 </script>
 </body>
 </html>
